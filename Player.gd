@@ -1,25 +1,47 @@
 extends KinematicBody2D
 
-export var upside_down = false
+export(bool) var upside_down = false
+export(NodePath) var anim_tree
 var velocity = Vector2()
 var run_speed = 300
 var gravity = 900
 var jump_speed = -500
+var facing = 1
 
 
-func _physics_process(delta):
-	var input_vector = (
-		int(Input.is_action_pressed("action_right"))
-		- int(Input.is_action_pressed("action_left"))
-	)
-	velocity.x = lerp(
-			velocity.x,
-			input_vector * run_speed,
-			delta * 2.0)
-	
-	if velocity.y == 0.0 and Input.is_action_just_pressed("action_jump"):
-		velocity.y = -jump_speed if upside_down else jump_speed
-	else:
-		velocity.y += (-gravity if upside_down else gravity) * delta
-	
-	velocity = move_and_slide(velocity)
+func is_on_floor() -> bool:
+	return $RayCast2D.is_colliding()
+
+
+func get_state_machine() -> AnimationNodeStateMachine:
+	return get_node(anim_tree)["parameters/playback"]
+
+
+func _on_facing_changed(new_facing):
+	facing = new_facing
+	$PlayerSprite.flip_h = (facing != 1)
+	$PlayerSprite.offset.x = facing
+
+
+func _on_Idle_state_entered():
+	get_state_machine().travel("PlayerSpriteIdle")
+
+
+func _on_Running_state_entered():
+	get_state_machine().travel("PlayerSpriteRunning")
+
+
+func _on_Running_skid():
+	get_state_machine().travel("Skid")
+
+
+func _on_Jumping_state_entered():
+	get_state_machine().travel("PlayerSpriteJumping")
+
+
+func _on_Hover_state_entered():
+	get_state_machine().travel("PlayerSpriteJumpingToFalling")
+
+
+func _on_Falling_state_entered():
+	get_state_machine().travel("PlayerSpriteFalling")
