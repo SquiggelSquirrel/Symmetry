@@ -2,8 +2,10 @@ extends PlayerState
 
 const RUN_SPEED := 200
 const GRAVITY = -900
-const JUMP_BUFFER := 0.3
+const JUMP_BUFFER := 0.2
+const COYOTE_LIMIT := 0.2
 var jump_time := 0.0
+var coyote_time := 1.0
 
 
 func _state_physics_process(delta :float) -> void:
@@ -22,8 +24,9 @@ func _state_physics_process(delta :float) -> void:
 	player.velocity = player.move_and_slide(player.velocity)
 	
 	jump_time += delta
+	coyote_time += delta
 	if player.is_on_floor():
-		if jump_time < JUMP_BUFFER:
+		if jump_time < JUMP_BUFFER and Input.is_action_pressed("action_jump"):
 			next_state_name = "Jumping"
 		elif abs(player.velocity.x) < 0.1:
 			next_state_name = "Idle"
@@ -33,4 +36,10 @@ func _state_physics_process(delta :float) -> void:
 
 func _state_input(event :InputEvent) -> void:
 	if event.is_action_pressed("action_jump"):
+		if coyote_time < COYOTE_LIMIT:
+			next_state_name = "Jumping"
 		jump_time = 0.0
+
+
+func _on_Running_coyote_time_start():
+	coyote_time = 0.0

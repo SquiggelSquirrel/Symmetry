@@ -2,6 +2,7 @@ extends PlayerState
 
 const RUN_SPEED := 200
 signal skid
+signal coyote_time_start
 
 
 func _state_physics_process(delta :float) -> void:
@@ -20,6 +21,7 @@ func _state_physics_process(delta :float) -> void:
 	player.velocity = player.move_and_slide(player.velocity)
 	
 	if ! player.is_on_floor():
+		emit_signal("coyote_time_start")
 		next_state_name = "Falling"
 		return
 	

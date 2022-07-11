@@ -125,7 +125,7 @@ states/Skid/node = SubResource( 113 )
 states/Skid/position = Vector2( 834, 345.034 )
 transitions = [ "PlayerSpriteStarting", "PlayerSpriteRunning", SubResource( 73 ), "PlayerSpriteStopping", "PlayerSpriteIdle", SubResource( 74 ), "PlayerSpriteJumping", "PlayerSpriteJumpingToFalling", SubResource( 81 ), "PlayerSpriteJumpingToFalling", "PlayerSpriteFalling", SubResource( 82 ), "PlayerSpriteIdle", "PlayerSpriteJumping", SubResource( 87 ), "PlayerSpriteIdle", "PlayerSpriteStarting", SubResource( 88 ), "PlayerSpriteRunning", "PlayerSpriteStopping", SubResource( 89 ), "PlayerSpriteIdle", "PlayerSpriteFalling", SubResource( 91 ), "PlayerSpriteRunning", "Skid", SubResource( 114 ), "Skid", "PlayerSpriteRunning", SubResource( 115 ), "PlayerSpriteRunning", "PlayerSpriteJumping", SubResource( 117 ), "PlayerSpriteFalling", "PlayerSpriteLanding", SubResource( 119 ), "PlayerSpriteLanding", "PlayerSpriteIdle", SubResource( 120 ), "PlayerSpriteFalling", "PlayerSpriteLandingRunning", SubResource( 123 ), "PlayerSpriteLandingRunning", "PlayerSpriteRunning", SubResource( 124 ), "PlayerSpriteFalling", "PlayerSpriteBounce", SubResource( 127 ), "PlayerSpriteBounce", "PlayerSpriteJumping", SubResource( 128 ), "PlayerSpriteLanding", "PlayerSpriteJumping", SubResource( 129 ), "PlayerSpriteStarting", "PlayerSpriteJumping", SubResource( 130 ), "PlayerSpriteStopping", "PlayerSpriteJumping", SubResource( 131 ) ]
 start_node = "PlayerSpriteIdle"
-graph_offset = Vector2( -503, -422.966 )
+graph_offset = Vector2( -477, -252.966 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=132]
 
@@ -157,7 +157,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../../Dust2:animation")
+tracks/2/path = NodePath("../../Dust1:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -229,7 +229,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../../Dust2:animation")
+tracks/2/path = NodePath("../../Dust1:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -285,7 +285,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../../Dust2:animation")
+tracks/2/path = NodePath("../../Dust1:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -325,7 +325,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../../Dust2:animation")
+tracks/2/path = NodePath("../../Dust1:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -369,7 +369,7 @@ tracks/0/keys = {
 "values": [ "Starting" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../../Dust2:animation")
+tracks/1/path = NodePath("../../Dust1:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -421,7 +421,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../../Dust2:animation")
+tracks/2/path = NodePath("../../Dust1:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1019,7 +1019,7 @@ tile_data = PoolIntArray( 0, 2, 0, 1, 2, 1, 2, 2, 1, 3, 2, 1, 4, 2, 1, 5, 2, 1, 
 script = ExtResource( 5 )
 
 [node name="Player1" type="KinematicBody2D" parent="Bottom"]
-position = Vector2( 97, 93 )
+position = Vector2( 102, 85 )
 script = ExtResource( 3 )
 upside_down = true
 anim_tree = NodePath("AnimationTree")
@@ -1066,7 +1066,7 @@ anims/PlayerSpriteStopping = SubResource( 142 )
 [node name="PlayerSprite" type="AnimatedSprite" parent="Bottom/Player1"]
 position = Vector2( 0, 17 )
 frames = SubResource( 8 )
-animation = "Idle"
+animation = "Stopping"
 frame = 2
 playing = true
 offset = Vector2( 1, 0 )
@@ -1074,7 +1074,7 @@ flip_v = true
 
 [node name="DustTransform" type="RemoteTransform2D" parent="Bottom/Player1"]
 position = Vector2( 0, -7 )
-remote_path = NodePath("../../../Dust2")
+remote_path = NodePath("../../../Dust1")
 update_rotation = false
 update_scale = false
 
@@ -1130,8 +1130,7 @@ anims/PlayerSpriteStopping = SubResource( 53 )
 [node name="PlayerSprite" type="AnimatedSprite" parent="Bottom/Player2"]
 position = Vector2( 0, -17 )
 frames = SubResource( 8 )
-animation = "Stopping"
-frame = 2
+animation = "Idle"
 playing = true
 offset = Vector2( 1, 0 )
 
@@ -1147,7 +1146,7 @@ enabled = true
 cast_to = Vector2( 0, 2 )
 
 [node name="Dust1" type="AnimatedSprite" parent="."]
-position = Vector2( 137, 557 )
+position = Vector2( 102, 78 )
 frames = SubResource( 110 )
 animation = "none"
 playing = true
@@ -1174,6 +1173,7 @@ default = "none"
 [connection signal="facing_changed" from="Bottom/Player1/StateMachine/Falling" to="Bottom/Player1" method="_on_facing_changed"]
 [connection signal="state_entered" from="Bottom/Player1/StateMachine/Falling" to="Bottom/Player1" method="_on_Falling_state_entered"]
 [connection signal="state_entered" from="Bottom/Player2/StateMachine/Idle" to="Bottom/Player2" method="_on_Idle_state_entered"]
+[connection signal="coyote_time_start" from="Bottom/Player2/StateMachine/Running" to="Bottom/Player2/StateMachine/Falling" method="_on_Running_coyote_time_start"]
 [connection signal="facing_changed" from="Bottom/Player2/StateMachine/Running" to="Bottom/Player2" method="_on_facing_changed"]
 [connection signal="skid" from="Bottom/Player2/StateMachine/Running" to="Bottom/Player2" method="_on_Running_skid"]
 [connection signal="state_entered" from="Bottom/Player2/StateMachine/Running" to="Bottom/Player2" method="_on_Running_state_entered"]
