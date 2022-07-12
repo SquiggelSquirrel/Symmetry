@@ -1,0 +1,165 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://tileset.png" type="Texture" id=1]
+[ext_resource path="res://PowerUp.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ -13.0, 13.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Border:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.953126, 0.953126 ), Vector2( 1, 1 ), Vector2( 0.953126, 0.953126 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Icon:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 2, 0.5, 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.948661, 0.948661 ), Vector2( 1, 1 ), Vector2( 0.948661, 0.948661 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "shake down"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2, 0.3 ),
+"transitions": PoolRealArray( 0.5, -2, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 4 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2, 0.3 ),
+"transitions": PoolRealArray( 0.5, -2, 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.95, 1.05 ), Vector2( 1.05, 0.95 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Icon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 0.5, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 2 ), Vector2( 0, -1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "shake up"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2, 0.3 ),
+"transitions": PoolRealArray( 0.5, -2, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -4 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2, 0.3 ),
+"transitions": PoolRealArray( 0.5, -2, 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.95, 1.05 ), Vector2( 1.05, 0.95 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Icon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 0.5, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 32 )
+
+[node name="PowerUp" type="StaticBody2D"]
+script = ExtResource( 2 )
+powerup_id = 1
+
+[node name="Idle" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Textures/Fill")
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+
+[node name="Shake" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Textures/Fill")
+"anims/shake down" = SubResource( 8 )
+"anims/shake up" = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="Textures" type="Node2D" parent="."]
+
+[node name="Border" type="Sprite" parent="Textures"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 0, 64, 64 )
+
+[node name="Fill" type="Sprite" parent="Textures"]
+rotation = -0.226893
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 128, 64, 64 )
+
+[node name="Icon" type="Sprite" parent="Textures"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 64, 64, 64 )

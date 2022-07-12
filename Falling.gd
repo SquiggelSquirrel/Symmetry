@@ -23,6 +23,17 @@ func _state_physics_process(delta :float) -> void:
 	
 	player.velocity = player.move_and_slide(player.velocity)
 	
+	for i in player.get_slide_count():
+		var collision = player.get_slide_collision(i)
+		if abs(collision.normal.x) < 0.1:
+			var collider = collision.collider
+			if ! player.upside_down:
+				if collider.has_method("hit_top"):
+					collider.hit_top(self)
+			else:
+				if collider.has_method("hit_bottom"):
+					collider.hit_bottom(self)
+	
 	jump_time += delta
 	coyote_time += delta
 	if player.is_on_floor():

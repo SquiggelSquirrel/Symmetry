@@ -33,5 +33,21 @@ func _state_physics_process(delta :float) -> void:
 	
 	player.velocity = player.move_and_slide(player.velocity)
 	
+	var is_on_ceiling = false
+	for i in player.get_slide_count():
+		var collision = player.get_slide_collision(i)
+		if abs(collision.normal.x) < 0.1:
+			is_on_ceiling = true
+			var collider = collision.collider
+			if player.upside_down:
+				if collider.has_method("hit_top"):
+					collider.hit_top(self)
+			else:
+				if collider.has_method("hit_bottom"):
+					collider.hit_bottom(self)
+	
 	if player.velocity.y * get_up() < 200.0 and next_state_name == "":
-		next_state_name = "Hover"
+		if is_on_ceiling:
+			next_state_name = "Falling"
+		else:
+			next_state_name = "Hover"

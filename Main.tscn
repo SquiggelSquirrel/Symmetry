@@ -1,25 +1,62 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://SplitScreen.gd" type="Script" id=1]
 [ext_resource path="res://Game.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Camera2D.gd" type="Script" id=3]
 [ext_resource path="res://Glowy.tres" type="Environment" id=4]
+[ext_resource path="res://tileset.png" type="Texture" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="SplitScreen" type="VBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+modulate = Color( 2, 2, 2, 1 )
+margin_right = 64.0
+margin_bottom = 640.0
+alignment = 1
+
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer"]
+margin_top = 254.0
+margin_right = 64.0
+margin_bottom = 318.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="Sprite" parent="HBoxContainer/VBoxContainer/Panel"]
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 160, 64, 64, 64 )
+
+[node name="Panel2" type="Panel" parent="HBoxContainer/VBoxContainer"]
+margin_top = 322.0
+margin_right = 64.0
+margin_bottom = 386.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="Sprite" parent="HBoxContainer/VBoxContainer/Panel2"]
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 64, 64, 64 )
+
+[node name="SplitScreen" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 68.0
+margin_right = 1024.0
+margin_bottom = 640.0
+size_flags_horizontal = 3
 custom_constants/separation = 0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ViewportContainer2" type="ViewportContainer" parent="SplitScreen"]
-margin_right = 1024.0
+[node name="ViewportContainer2" type="ViewportContainer" parent="HBoxContainer/SplitScreen"]
+margin_right = 956.0
 margin_bottom = 320.0
 size_flags_vertical = 3
 stretch = true
@@ -27,26 +64,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Viewport" type="Viewport" parent="SplitScreen/ViewportContainer2"]
-size = Vector2( 1024, 320 )
+[node name="Viewport" type="Viewport" parent="HBoxContainer/SplitScreen/ViewportContainer2"]
+size = Vector2( 956, 320 )
 own_world = true
 handle_input_locally = false
 hdr = false
 usage = 0
 render_target_update_mode = 3
 
-[node name="Camera2D" type="Camera2D" parent="SplitScreen/ViewportContainer2/Viewport"]
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SplitScreen/ViewportContainer2/Viewport"]
 current = true
+limit_left = 0
 script = ExtResource( 3 )
 game = NodePath("../../../ViewportContainer/Viewport/Game")
 player_id = 2
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="SplitScreen/ViewportContainer2/Viewport"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="HBoxContainer/SplitScreen/ViewportContainer2/Viewport"]
 environment = ExtResource( 4 )
 
-[node name="ViewportContainer" type="ViewportContainer" parent="SplitScreen"]
+[node name="ViewportContainer" type="ViewportContainer" parent="HBoxContainer/SplitScreen"]
 margin_top = 320.0
-margin_right = 1024.0
+margin_right = 956.0
 margin_bottom = 640.0
 size_flags_vertical = 3
 stretch = true
@@ -54,21 +92,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Viewport" type="Viewport" parent="SplitScreen/ViewportContainer"]
-size = Vector2( 1024, 320 )
+[node name="Viewport" type="Viewport" parent="HBoxContainer/SplitScreen/ViewportContainer"]
+size = Vector2( 956, 320 )
 own_world = true
 handle_input_locally = false
 hdr = false
 usage = 0
 render_target_update_mode = 3
 
-[node name="Game" parent="SplitScreen/ViewportContainer/Viewport" instance=ExtResource( 2 )]
+[node name="Game" parent="HBoxContainer/SplitScreen/ViewportContainer/Viewport" instance=ExtResource( 2 )]
 
-[node name="Camera2D" type="Camera2D" parent="SplitScreen/ViewportContainer/Viewport"]
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SplitScreen/ViewportContainer/Viewport"]
 current = true
+limit_left = 0
 script = ExtResource( 3 )
 game = NodePath("../Game")
 player_id = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="SplitScreen/ViewportContainer/Viewport"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="HBoxContainer/SplitScreen/ViewportContainer/Viewport"]
 environment = ExtResource( 4 )
