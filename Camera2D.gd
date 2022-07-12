@@ -10,6 +10,6 @@ func _process(_delta):
 		return
 	position.x = player.position.x
 	if player_id == 1:
-		position.y = max(player.position.y, 160)
+		position.y = 480
 	else:
-		position.y = min(player.position.y, 480)
+		position.y = 160

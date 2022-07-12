@@ -18,9 +18,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ViewportContainer" type="ViewportContainer" parent="SplitScreen"]
+[node name="ViewportContainer2" type="ViewportContainer" parent="SplitScreen"]
 margin_right = 1024.0
 margin_bottom = 320.0
+size_flags_vertical = 3
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="SplitScreen/ViewportContainer2"]
+size = Vector2( 1024, 320 )
+own_world = true
+handle_input_locally = false
+hdr = false
+usage = 0
+render_target_update_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="SplitScreen/ViewportContainer2/Viewport"]
+current = true
+script = ExtResource( 3 )
+game = NodePath("../../../ViewportContainer/Viewport/Game")
+player_id = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SplitScreen/ViewportContainer2/Viewport"]
+environment = ExtResource( 4 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="SplitScreen"]
+margin_top = 320.0
+margin_right = 1024.0
+margin_bottom = 640.0
 size_flags_vertical = 3
 stretch = true
 __meta__ = {
@@ -44,31 +71,4 @@ game = NodePath("../Game")
 player_id = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SplitScreen/ViewportContainer/Viewport"]
-environment = ExtResource( 4 )
-
-[node name="ViewportContainer2" type="ViewportContainer" parent="SplitScreen"]
-margin_top = 320.0
-margin_right = 1024.0
-margin_bottom = 640.0
-size_flags_vertical = 3
-stretch = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Viewport" type="Viewport" parent="SplitScreen/ViewportContainer2"]
-size = Vector2( 1024, 320 )
-own_world = true
-handle_input_locally = false
-hdr = false
-usage = 0
-render_target_update_mode = 3
-
-[node name="Camera2D" type="Camera2D" parent="SplitScreen/ViewportContainer2/Viewport"]
-current = true
-script = ExtResource( 3 )
-game = NodePath("../../../ViewportContainer/Viewport/Game")
-player_id = 2
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="SplitScreen/ViewportContainer2/Viewport"]
 environment = ExtResource( 4 )

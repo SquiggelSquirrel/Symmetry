@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=2]
+[gd_scene load_steps=137 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://characters.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://Game.gd" type="Script" id=4]
 [ext_resource path="res://Border.gd" type="Script" id=5]
 [ext_resource path="res://characters/player 2/head.PNG" type="Texture" id=6]
-[ext_resource path="res://Dust.png" type="Texture" id=7]
+[ext_resource path="res://characters/player 1/dust.PNG" type="Texture" id=7]
 [ext_resource path="res://StateMachine.gd" type="Script" id=8]
 [ext_resource path="res://OneShots.gd" type="Script" id=9]
 [ext_resource path="res://Idle.gd" type="Script" id=10]
@@ -43,6 +43,7 @@
 [ext_resource path="res://characters/player 2/near arm lower.PNG" type="Texture" id=41]
 [ext_resource path="res://characters/player 2/abs.PNG" type="Texture" id=42]
 [ext_resource path="res://characters/player 2/far arm lower.PNG" type="Texture" id=43]
+[ext_resource path="res://characters/player 2/dust.PNG" type="Texture" id=44]
 
 [sub_resource type="CapsuleShape2D" id=112]
 radius = 11.0
@@ -11024,89 +11025,94 @@ tracks/45/keys = {
 "values": [ 133.129 ]
 }
 
-[sub_resource type="AtlasTexture" id=95]
+[sub_resource type="AtlasTexture" id=157]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=96]
+[sub_resource type="AtlasTexture" id=158]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=97]
+[sub_resource type="AtlasTexture" id=159]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=98]
+[sub_resource type="AtlasTexture" id=160]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 96, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=99]
+[sub_resource type="AtlasTexture" id=191]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 0, 96, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=100]
+[sub_resource type="AtlasTexture" id=192]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 32, 96, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=101]
+[sub_resource type="AtlasTexture" id=193]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 64, 96, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=102]
+[sub_resource type="AtlasTexture" id=194]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 96, 96, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=103]
+[sub_resource type="AtlasTexture" id=165]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=104]
+[sub_resource type="AtlasTexture" id=166]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 32, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=105]
+[sub_resource type="AtlasTexture" id=167]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 64, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=106]
+[sub_resource type="AtlasTexture" id=168]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 96, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=169]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 0, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=107]
+[sub_resource type="AtlasTexture" id=170]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 32, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=108]
+[sub_resource type="AtlasTexture" id=171]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 64, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=109]
+[sub_resource type="AtlasTexture" id=172]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 96, 64, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=110]
+[sub_resource type="SpriteFrames" id=173]
 animations = [ {
-"frames": [ SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ) ],
+"frames": [ SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ) ],
 "loop": true,
 "name": "stop",
 "speed": 6.0
 }, {
-"frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ) ],
+"frames": [ SubResource( 191 ), SubResource( 192 ), SubResource( 193 ), SubResource( 194 ) ],
 "loop": true,
 "name": "start",
 "speed": 6.0
@@ -11116,12 +11122,120 @@ animations = [ {
 "name": "none",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 103 ), SubResource( 104 ), SubResource( 105 ) ],
+"frames": [ SubResource( 165 ), SubResource( 166 ), SubResource( 167 ), SubResource( 168 ) ],
 "loop": true,
 "name": "jump",
 "speed": 6.0
 }, {
-"frames": [ SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ) ],
+"frames": [ SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ) ],
+"loop": true,
+"name": "landing",
+"speed": 6.0
+} ]
+
+[sub_resource type="AtlasTexture" id=174]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=175]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=176]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=177]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=178]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 0, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=179]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 32, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=180]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 64, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=181]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 96, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=182]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=183]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=184]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 64, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=185]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 96, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=186]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=187]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=188]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 64, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=189]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 96, 64, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=190]
+animations = [ {
+"frames": [ SubResource( 174 ), SubResource( 175 ), SubResource( 176 ), SubResource( 177 ) ],
+"loop": true,
+"name": "stop",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 178 ), SubResource( 179 ), SubResource( 180 ), SubResource( 181 ) ],
+"loop": true,
+"name": "start",
+"speed": 6.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "none",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 182 ), SubResource( 183 ), SubResource( 184 ), SubResource( 185 ) ],
+"loop": true,
+"name": "jump",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 186 ), SubResource( 187 ), SubResource( 188 ), SubResource( 189 ) ],
 "loop": true,
 "name": "landing",
 "speed": 6.0
@@ -11135,7 +11249,16 @@ __meta__ = {
 player_1 = NodePath("Bottom/Player1")
 player_2 = NodePath("Bottom/Player2")
 
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0.27451 )
+tile_set = ExtResource( 1 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 0, 1073741827, 0, 1, 1073741827, 0, 2, 1073741827, 0, 3, 1073741827, 0, 4, 1073741827, 0, 5, 1073741827, 0, 6, 1073741827, 0, 7, 1073741827, 0, 8, 1073741827, 0, 9, 1073741827, 0, 10, 1073741827, 0, 11, 1073741827, 0, 12, 1073741827, 0, 13, 1073741827, 0, 14, 1073741827, 0, 15, 1073741827, 0, 65536, 1073741827, 0, 65537, 1073741825, 0, 65538, 1073741827, 0, 65539, 1073741827, 0, 65540, 1073741827, 0, 65541, 1073741827, 0, 65542, 1073741825, 0, 65543, 1073741827, 0, 65544, 1073741827, 0, 65545, 1073741827, 0, 65546, 1073741827, 0, 65547, 1073741825, 0, 65548, 1073741827, 0, 65549, 1073741827, 0, 65550, 1073741827, 0, 65551, 1073741827, 0, 131072, 1073741827, 0, 131073, 1073741827, 0, 131074, 1073741827, 0, 131075, 1073741827, 0, 131076, 1073741827, 0, 131077, 1073741827, 0, 131078, 1073741827, 0, 131079, 1073741827, 0, 131080, 1073741827, 0, 131081, 1073741825, 0, 131082, 1073741827, 0, 131083, 1073741827, 0, 131084, 1073741827, 0, 131085, 1073741827, 0, 131086, 1073741825, 0, 131087, 1073741827, 0, 196608, 1073741827, 0, 196609, 1073741827, 0, 196610, 1073741825, 0, 196611, 1073741827, 0, 196612, 1073741827, 0, 196613, 1073741827, 0, 196614, 1073741827, 0, 196615, 1073741825, 0, 196616, 1073741827, 0, 196617, 1073741827, 0, 196618, 1073741827, 0, 196619, 1073741827, 0, 196620, 1073741827, 0, 196621, 1073741827, 0, 196622, 1073741827, 0, 196623, 1073741827, 0, 262144, 1073741827, 0, 262145, 1073741827, 0, 262146, 1073741827, 0, 262147, 1073741827, 0, 262148, 1073741827, 0, 262149, 1073741825, 0, 262150, 1073741827, 0, 262151, 1073741827, 0, 262152, 1073741827, 0, 262153, 1073741827, 0, 262154, 1073741825, 0, 262155, 1073741827, 0, 262156, 1073741827, 0, 262157, 1073741827, 0, 262158, 1073741827, 0, 262159, 1073741827, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 3, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 3, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 3, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 3, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 3, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 3, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 3, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 524288, 1, 0, 524289, 3, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 3, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0 )
+
 [node name="Bottom" type="TileMap" parent="."]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
 tile_set = ExtResource( 1 )
 format = 1
 tile_data = PoolIntArray( 0, 1073741827, 0, 1, 1073741827, 0, 2, 1073741827, 0, 3, 1073741827, 0, 4, 1073741827, 0, 5, 1073741827, 0, 6, 1073741827, 0, 7, 1073741827, 0, 8, 1073741827, 0, 9, 1073741827, 0, 10, 1073741827, 0, 11, 1073741827, 0, 12, 1073741827, 0, 13, 1073741827, 0, 14, 1073741827, 0, 15, 1073741827, 0, 65536, 1073741827, 0, 65551, 1073741827, 0, 131072, 1073741827, 0, 131076, 1073741827, 0, 131078, 1073741827, 0, 131079, 1073741827, 0, 131080, 1073741827, 0, 131087, 1073741827, 0, 196608, 1073741827, 0, 196619, 1073741827, 0, 196620, 1073741827, 0, 196623, 1073741827, 0, 262144, 1073741827, 0, 262159, 1073741827, 0, 327680, 1, 0, 327695, 1, 0, 393216, 1, 0, 393231, 1, 0, 458752, 1, 0, 458766, 1, 0, 458767, 1, 0, 524288, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524303, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0 )
@@ -11149,9 +11272,8 @@ tile_data = PoolIntArray( 0, 2, 0, 1, 2, 1, 2, 2, 1, 3, 2, 1, 4, 2, 1, 5, 2, 1, 
 script = ExtResource( 5 )
 
 [node name="Player1" type="KinematicBody2D" parent="Bottom"]
-position = Vector2( 98, 94 )
+position = Vector2( 96, 546 )
 script = ExtResource( 3 )
-upside_down = true
 anim_tree = NodePath("AnimationTree")
 
 [node name="StateMachine" type="Node" parent="Bottom/Player1"]
@@ -11195,15 +11317,15 @@ anims/PlayerSpriteStopping = SubResource( 155 )
 anims/RESET = SubResource( 156 )
 
 [node name="DustTransform" type="RemoteTransform2D" parent="Bottom/Player1"]
-position = Vector2( 0, -16 )
+position = Vector2( 0, 10 )
 remote_path = NodePath("../../../Dust1")
 update_rotation = false
 update_scale = false
 
 [node name="RayCast2D" type="RayCast2D" parent="Bottom/Player1"]
-position = Vector2( 0, -30 )
+position = Vector2( 0, 30 )
 enabled = true
-cast_to = Vector2( 0, -2 )
+cast_to = Vector2( 0, 2 )
 
 [node name="Characters" type="Sprite" parent="Bottom/Player1"]
 visible = false
@@ -11214,7 +11336,7 @@ region_enabled = true
 region_rect = Rect2( 71.9474, 46.5263, 56.8421, 121.053 )
 
 [node name="puppet" type="Node2D" parent="Bottom/Player1"]
-scale = Vector2( 0.7, -0.7 )
+scale = Vector2( 0.7, 0.7 )
 
 [node name="Abs" type="Sprite" parent="Bottom/Player1/puppet"]
 position = Vector2( 2, -2 )
@@ -11298,8 +11420,9 @@ texture = ExtResource( 26 )
 offset = Vector2( 0, -9 )
 
 [node name="Player2" type="KinematicBody2D" parent="Bottom"]
-position = Vector2( 96, 546 )
+position = Vector2( 96, 94 )
 script = ExtResource( 3 )
+upside_down = true
 anim_tree = NodePath("AnimationTree")
 
 [node name="StateMachine" type="Node" parent="Bottom/Player2"]
@@ -11321,7 +11444,6 @@ script = ExtResource( 13 )
 script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/Player2"]
-visible = false
 shape = SubResource( 112 )
 
 [node name="AnimationTree" type="AnimationTree" parent="Bottom/Player2"]
@@ -11344,26 +11466,25 @@ anims/PlayerSpriteStopping = SubResource( 53 )
 anims/RESET = SubResource( 143 )
 
 [node name="DustTransform" type="RemoteTransform2D" parent="Bottom/Player2"]
-position = Vector2( 0, 16 )
+position = Vector2( 0, -10 )
 remote_path = NodePath("../../../Dust2")
 update_rotation = false
 update_scale = false
 
 [node name="RayCast2D" type="RayCast2D" parent="Bottom/Player2"]
-position = Vector2( 0, 30 )
+position = Vector2( 0, -30 )
 enabled = true
-cast_to = Vector2( 0, 2 )
+cast_to = Vector2( 0, -2 )
 
 [node name="puppet" type="Node2D" parent="Bottom/Player2"]
 modulate = Color( 0.9, 0.9, 0.9, 1 )
-scale = Vector2( 0.7, 0.7 )
+scale = Vector2( 0.7, -0.7 )
 
 [node name="Abs" type="Node2D" parent="Bottom/Player2/puppet"]
 position = Vector2( 2, -1.92789 )
 
 [node name="Skirt" type="Polygon2D" parent="Bottom/Player2/puppet/Abs"]
 position = Vector2( -20, -14.2857 )
-scale = Vector2( 1, 1 )
 offset = Vector2( 1, 4 )
 texture = ExtResource( 42 )
 skeleton = NodePath("Skeleton2D")
@@ -11382,13 +11503,11 @@ rest = Transform2D( 1, 0, 0, 1, 1.9082, -4.35559 )
 [node name="Bone2D2" type="Bone2D" parent="Bottom/Player2/puppet/Abs/Skirt/Skeleton2D/Bone2D"]
 position = Vector2( 5.15076, 0.00744629 )
 rotation = 0.90818
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.615182, 0.788386, -0.788386, 0.615182, 5.15076, 0.00744629 )
 
 [node name="Bone2D3" type="Bone2D" parent="Bottom/Player2/puppet/Abs/Skirt/Skeleton2D/Bone2D"]
 position = Vector2( -6.76532, 0.641296 )
-rotation = 2.32355
-scale = Vector2( 1, 1 )
+rotation = 2.32354
 rest = Transform2D( -0.683648, 0.729812, -0.729812, -0.683648, -6.76532, 0.641296 )
 
 [node name="NearLegUpper" type="Sprite" parent="Bottom/Player2/puppet/Abs"]
@@ -11472,19 +11591,21 @@ texture = ExtResource( 6 )
 offset = Vector2( -1, -7 )
 
 [node name="Dust1" type="AnimatedSprite" parent="."]
-position = Vector2( 98, 78 )
-frames = SubResource( 110 )
+position = Vector2( 96, 556 )
+scale = Vector2( 1.4, 1.4 )
+frames = SubResource( 173 )
 animation = "none"
 playing = true
-flip_v = true
 script = ExtResource( 9 )
 default = "none"
 
 [node name="Dust2" type="AnimatedSprite" parent="."]
-position = Vector2( 96, 562 )
-frames = SubResource( 110 )
+position = Vector2( 96, 84 )
+scale = Vector2( 1.4, 1.4 )
+frames = SubResource( 190 )
 animation = "none"
 playing = true
+flip_v = true
 script = ExtResource( 9 )
 default = "none"
 
