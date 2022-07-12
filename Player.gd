@@ -19,8 +19,7 @@ func get_state_machine() -> AnimationNodeStateMachine:
 
 func _on_facing_changed(new_facing):
 	facing = new_facing
-	$PlayerSprite.flip_h = (facing != 1)
-	$PlayerSprite.offset.x = facing
+	$puppet.scale.x = abs($puppet.scale.x) * facing
 
 
 func _on_Idle_state_entered():

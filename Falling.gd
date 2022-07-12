@@ -3,7 +3,7 @@ extends PlayerState
 const RUN_SPEED := 200
 const GRAVITY = -900
 const JUMP_BUFFER := 0.2
-const COYOTE_LIMIT := 0.2
+const COYOTE_LIMIT := 0.1
 var jump_time := 0.0
 var coyote_time := 1.0
 
@@ -37,6 +37,7 @@ func _state_physics_process(delta :float) -> void:
 func _state_input(event :InputEvent) -> void:
 	if event.is_action_pressed("action_jump"):
 		if coyote_time < COYOTE_LIMIT:
+			coyote_time = 1.0
 			next_state_name = "Jumping"
 		jump_time = 0.0
 
