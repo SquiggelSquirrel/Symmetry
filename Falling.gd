@@ -29,10 +29,10 @@ func _state_physics_process(delta :float) -> void:
 			var collider = collision.collider
 			if ! player.upside_down:
 				if collider.has_method("hit_top"):
-					collider.hit_top(self)
+					collider.hit_top(player)
 			else:
 				if collider.has_method("hit_bottom"):
-					collider.hit_bottom(self)
+					collider.hit_bottom(player)
 	
 	jump_time += delta
 	coyote_time += delta

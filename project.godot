@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "StateMachineState",
 "language": "GDScript",
 "path": "res://StateMachineState.gd"
+}, {
+"base": "Sprite",
+"class": "StateTile",
+"language": "GDScript",
+"path": "res://StateTile.gd"
 } ]
 _global_script_class_icons={
 "PlayerState": "",
-"StateMachineState": ""
+"StateMachineState": "",
+"StateTile": ""
 }
 
 [application]
@@ -29,6 +35,10 @@ _global_script_class_icons={
 config/name="Symmetry"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://Globals.gd"
 
 [display]
 

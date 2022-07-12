@@ -1,6 +1,7 @@
 extends StateMachineState
 class_name PlayerState
 
+# warning-ignore:unused_signal
 signal facing_changed(new_facing)
 
 

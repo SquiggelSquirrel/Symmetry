@@ -11247,24 +11247,24 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_vertical_guides_": [ 74.7539 ]
 }
-player_1 = NodePath("Bottom/Player1")
-player_2 = NodePath("Bottom/Player2")
+player_1 = NodePath("Blocks/Player1")
+player_2 = NodePath("Blocks/Player2")
 
-[node name="TileMap" type="TileMap" parent="."]
-modulate = Color( 1, 1, 1, 0.27451 )
+[node name="Background" type="TileMap" parent="."]
+modulate = Color( 0.07, 0.07, 0.07, 1 )
 tile_set = ExtResource( 1 )
 collision_layer = 0
 collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 0, 1073741827, 0, 1, 1073741827, 0, 2, 1073741827, 0, 3, 1073741827, 0, 4, 1073741827, 0, 5, 1073741827, 0, 6, 1073741827, 0, 7, 1073741827, 0, 8, 1073741827, 0, 9, 1073741827, 0, 10, 1073741827, 0, 11, 1073741827, 0, 12, 1073741827, 0, 13, 1073741827, 0, 14, 1073741827, 0, 15, 1073741827, 0, 65536, 1073741827, 0, 65537, 1073741825, 0, 65538, 1073741827, 0, 65539, 1073741827, 0, 65540, 1073741827, 0, 65541, 1073741827, 0, 65542, 1073741825, 0, 65543, 1073741827, 0, 65544, 1073741827, 0, 65545, 1073741827, 0, 65546, 1073741827, 0, 65547, 1073741825, 0, 65548, 1073741827, 0, 65549, 1073741827, 0, 65550, 1073741827, 0, 65551, 1073741827, 0, 131072, 1073741827, 0, 131073, 1073741827, 0, 131074, 1073741827, 0, 131075, 1073741827, 0, 131076, 1073741827, 0, 131077, 1073741827, 0, 131078, 1073741827, 0, 131079, 1073741827, 0, 131080, 1073741827, 0, 131081, 1073741825, 0, 131082, 1073741827, 0, 131083, 1073741827, 0, 131084, 1073741827, 0, 131085, 1073741827, 0, 131086, 1073741825, 0, 131087, 1073741827, 0, 196608, 1073741827, 0, 196609, 1073741827, 0, 196610, 1073741825, 0, 196611, 1073741827, 0, 196612, 1073741827, 0, 196613, 1073741827, 0, 196614, 1073741827, 0, 196615, 1073741825, 0, 196616, 1073741827, 0, 196617, 1073741827, 0, 196618, 1073741827, 0, 196619, 1073741827, 0, 196620, 1073741827, 0, 196621, 1073741827, 0, 196622, 1073741827, 0, 196623, 1073741827, 0, 262144, 1073741827, 0, 262145, 1073741827, 0, 262146, 1073741827, 0, 262147, 1073741827, 0, 262148, 1073741827, 0, 262149, 1073741825, 0, 262150, 1073741827, 0, 262151, 1073741827, 0, 262152, 1073741827, 0, 262153, 1073741827, 0, 262154, 1073741825, 0, 262155, 1073741827, 0, 262156, 1073741827, 0, 262157, 1073741827, 0, 262158, 1073741827, 0, 262159, 1073741827, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 3, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 3, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 3, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 3, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 3, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 3, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 3, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 524288, 1, 0, 524289, 3, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 3, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0 )
 
-[node name="Bottom" type="TileMap" parent="."]
+[node name="Blocks" type="TileMap" parent="."]
 modulate = Color( 1.2, 1.2, 1.2, 1 )
 tile_set = ExtResource( 1 )
 format = 1
 tile_data = PoolIntArray( 0, 1073741827, 0, 1, 1073741827, 0, 2, 1073741827, 0, 3, 1073741827, 0, 4, 1073741827, 0, 5, 1073741827, 0, 6, 1073741827, 0, 7, 1073741827, 0, 8, 1073741827, 0, 9, 1073741827, 0, 10, 1073741827, 0, 11, 1073741827, 0, 12, 1073741827, 0, 13, 1073741827, 0, 14, 1073741827, 0, 15, 1073741827, 0, 65536, 1073741827, 0, 65551, 1073741827, 0, 131072, 1073741827, 0, 131076, 1073741827, 0, 131078, 1073741827, 0, 131079, 1073741827, 0, 131080, 1073741827, 0, 131087, 1073741827, 0, 196608, 1073741827, 0, 196619, 1073741827, 0, 196620, 1073741827, 0, 196623, 1073741827, 0, 262144, 1073741827, 0, 262159, 1073741827, 0, 327680, 1, 0, 327695, 1, 0, 393216, 1, 0, 393218, 1, 0, 393219, 1, 0, 393221, 1, 0, 393231, 1, 0, 458752, 1, 0, 458766, 1, 0, 458767, 1, 0, 524288, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524303, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0 )
 
-[node name="Border" type="TileMap" parent="Bottom"]
+[node name="Border" type="TileMap" parent="Blocks"]
 modulate = Color( 2.5, 2.5, 2.5, 1 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
@@ -11272,40 +11272,40 @@ format = 1
 tile_data = PoolIntArray( 0, 2, 0, 1, 2, 1, 2, 2, 1, 3, 2, 1, 4, 2, 1, 5, 2, 1, 6, 2, 1, 7, 2, 1, 8, 2, 1, 9, 2, 1, 10, 2, 1, 11, 2, 1, 12, 2, 1, 13, 2, 1, 14, 2, 1, 15, 2, 1, 16, 2, 1, 17, 2, 1, 18, 2, 1, 19, 2, 1, 20, 2, 1, 21, 2, 1, 22, 2, 1, 23, 2, 1, 24, 2, 1, 25, 2, 1, 26, 2, 1, 27, 2, 1, 28, 2, 1, 29, 2, 1, 30, 2, 1, 31, 2, 2, 65536, 2, 65536, 65537, 2, 65539, 65538, 2, 131073, 65539, 2, 131073, 65540, 2, 131073, 65541, 2, 131073, 65542, 2, 131073, 65543, 2, 131073, 65544, 2, 131073, 65545, 2, 131073, 65546, 2, 131073, 65547, 2, 131073, 65548, 2, 131073, 65549, 2, 131073, 65550, 2, 131073, 65551, 2, 131073, 65552, 2, 131073, 65553, 2, 131073, 65554, 2, 131073, 65555, 2, 131073, 65556, 2, 131073, 65557, 2, 131073, 65558, 2, 131073, 65559, 2, 131073, 65560, 2, 131073, 65561, 2, 131073, 65562, 2, 131073, 65563, 2, 131073, 65564, 2, 131073, 65565, 2, 131073, 65566, 2, 65540, 65567, 2, 65538, 131072, 2, 65536, 131073, 2, 65538, 131102, 2, 65536, 131103, 2, 65538, 196608, 2, 65536, 196609, 2, 65538, 196638, 2, 65536, 196639, 2, 65538, 262144, 2, 65536, 262145, 2, 65538, 262152, 2, 0, 262153, 2, 2, 262156, 2, 0, 262157, 2, 1, 262158, 2, 1, 262159, 2, 1, 262160, 2, 1, 262161, 2, 2, 262174, 2, 65536, 262175, 2, 65538, 327680, 2, 65536, 327681, 2, 65538, 327688, 2, 131072, 327689, 2, 131074, 327692, 2, 131072, 327693, 2, 131073, 327694, 2, 131073, 327695, 2, 131073, 327696, 2, 131073, 327697, 2, 131074, 327710, 2, 65536, 327711, 2, 65538, 393216, 2, 65536, 393217, 2, 65538, 393238, 2, 0, 393239, 2, 1, 393240, 2, 1, 393241, 2, 2, 393246, 2, 65536, 393247, 2, 65538, 458752, 2, 65536, 458753, 2, 65538, 458774, 2, 131072, 458775, 2, 131073, 458776, 2, 131073, 458777, 2, 131074, 458782, 2, 65536, 458783, 2, 65538, 524288, 2, 65536, 524289, 2, 65538, 524318, 2, 65536, 524319, 2, 65538, 589824, 2, 65536, 589825, 2, 65538, 589854, 2, 65536, 589855, 2, 65538, 655360, 0, 65536, 655361, 0, 65538, 655390, 0, 65536, 655391, 0, 65538, 720896, 0, 65536, 720897, 0, 65538, 720926, 0, 65536, 720927, 0, 65538, 786432, 0, 65536, 786433, 0, 65538, 786436, 0, 0, 786437, 0, 1, 786438, 0, 1, 786439, 0, 2, 786442, 0, 0, 786443, 0, 2, 786462, 0, 65536, 786463, 0, 65538, 851968, 0, 65536, 851969, 0, 65538, 851972, 0, 131072, 851973, 0, 131073, 851974, 0, 131073, 851975, 0, 131074, 851978, 0, 131072, 851979, 0, 131074, 851998, 0, 65536, 851999, 0, 65538, 917504, 0, 65536, 917505, 0, 65538, 917532, 0, 0, 917533, 0, 1, 917534, 0, 65540, 917535, 0, 65538, 983040, 0, 65536, 983041, 0, 65538, 983068, 0, 131072, 983069, 0, 131073, 983070, 0, 4, 983071, 0, 65538, 1048576, 0, 65536, 1048577, 0, 65538, 1048590, 0, 0, 1048591, 0, 1, 1048592, 0, 1, 1048593, 0, 1, 1048594, 0, 1, 1048595, 0, 1, 1048596, 0, 1, 1048597, 0, 1, 1048598, 0, 1, 1048599, 0, 1, 1048600, 0, 1, 1048601, 0, 2, 1048606, 0, 65536, 1048607, 0, 65538, 1114112, 0, 65536, 1114113, 0, 65538, 1114126, 0, 65536, 1114127, 0, 3, 1114128, 0, 131073, 1114129, 0, 131073, 1114130, 0, 131073, 1114131, 0, 131073, 1114132, 0, 131073, 1114133, 0, 131073, 1114134, 0, 131073, 1114135, 0, 131073, 1114136, 0, 4, 1114137, 0, 65538, 1114142, 0, 65536, 1114143, 0, 65538, 1179648, 0, 65536, 1179649, 0, 65539, 1179650, 0, 1, 1179651, 0, 1, 1179652, 0, 1, 1179653, 0, 1, 1179654, 0, 1, 1179655, 0, 1, 1179656, 0, 1, 1179657, 0, 1, 1179658, 0, 1, 1179659, 0, 1, 1179660, 0, 1, 1179661, 0, 1, 1179662, 0, 65540, 1179663, 0, 65538, 1179672, 0, 65536, 1179673, 0, 65539, 1179674, 0, 1, 1179675, 0, 1, 1179676, 0, 1, 1179677, 0, 1, 1179678, 0, 65540, 1179679, 0, 65538, 1245184, 0, 131072, 1245185, 0, 131073, 1245186, 0, 131073, 1245187, 0, 131073, 1245188, 0, 131073, 1245189, 0, 131073, 1245190, 0, 131073, 1245191, 0, 131073, 1245192, 0, 131073, 1245193, 0, 131073, 1245194, 0, 131073, 1245195, 0, 131073, 1245196, 0, 131073, 1245197, 0, 131073, 1245198, 0, 131073, 1245199, 0, 131074, 1245208, 0, 131072, 1245209, 0, 131073, 1245210, 0, 131073, 1245211, 0, 131073, 1245212, 0, 131073, 1245213, 0, 131073, 1245214, 0, 131073, 1245215, 0, 131074 )
 script = ExtResource( 5 )
 
-[node name="Player1" type="KinematicBody2D" parent="Bottom"]
+[node name="Player1" type="KinematicBody2D" parent="Blocks"]
 position = Vector2( 96, 546 )
 collision_layer = 0
 script = ExtResource( 3 )
 anim_tree = NodePath("AnimationTree")
 
-[node name="StateMachine" type="Node" parent="Bottom/Player1"]
+[node name="StateMachine" type="Node" parent="Blocks/Player1"]
 script = ExtResource( 8 )
 
-[node name="Idle" type="Node" parent="Bottom/Player1/StateMachine"]
+[node name="Idle" type="Node" parent="Blocks/Player1/StateMachine"]
 script = ExtResource( 10 )
 
-[node name="Running" type="Node" parent="Bottom/Player1/StateMachine"]
+[node name="Running" type="Node" parent="Blocks/Player1/StateMachine"]
 script = ExtResource( 11 )
 
-[node name="Jumping" type="Node" parent="Bottom/Player1/StateMachine"]
+[node name="Jumping" type="Node" parent="Blocks/Player1/StateMachine"]
 script = ExtResource( 12 )
 
-[node name="Hover" type="Node" parent="Bottom/Player1/StateMachine"]
+[node name="Hover" type="Node" parent="Blocks/Player1/StateMachine"]
 script = ExtResource( 13 )
 
-[node name="Falling" type="Node" parent="Bottom/Player1/StateMachine"]
+[node name="Falling" type="Node" parent="Blocks/Player1/StateMachine"]
 script = ExtResource( 14 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/Player1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Player1"]
 shape = SubResource( 112 )
 
-[node name="AnimationTree" type="AnimationTree" parent="Bottom/Player1"]
+[node name="AnimationTree" type="AnimationTree" parent="Blocks/Player1"]
 tree_root = SubResource( 85 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 145 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bottom/Player1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Blocks/Player1"]
 anims/PlayerSpriteBounce = SubResource( 146 )
 anims/PlayerSpriteFalling = SubResource( 147 )
 anims/PlayerSpriteIdle = SubResource( 148 )
@@ -11318,18 +11318,18 @@ anims/PlayerSpriteStarting = SubResource( 154 )
 anims/PlayerSpriteStopping = SubResource( 155 )
 anims/RESET = SubResource( 156 )
 
-[node name="DustTransform" type="RemoteTransform2D" parent="Bottom/Player1"]
+[node name="DustTransform" type="RemoteTransform2D" parent="Blocks/Player1"]
 position = Vector2( 0, 10 )
 remote_path = NodePath("../../../Dust1")
 update_rotation = false
 update_scale = false
 
-[node name="RayCast2D" type="RayCast2D" parent="Bottom/Player1"]
+[node name="RayCast2D" type="RayCast2D" parent="Blocks/Player1"]
 position = Vector2( 0, 30 )
 enabled = true
 cast_to = Vector2( 0, 2 )
 
-[node name="Characters" type="Sprite" parent="Bottom/Player1"]
+[node name="Characters" type="Sprite" parent="Blocks/Player1"]
 visible = false
 position = Vector2( 27, -3 )
 scale = Vector2( 0.5, 0.5 )
@@ -11337,125 +11337,125 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 71.9474, 46.5263, 56.8421, 121.053 )
 
-[node name="puppet" type="Node2D" parent="Bottom/Player1"]
+[node name="puppet" type="Node2D" parent="Blocks/Player1"]
 scale = Vector2( 0.7, 0.7 )
 
-[node name="Abs" type="Sprite" parent="Bottom/Player1/puppet"]
+[node name="Abs" type="Sprite" parent="Blocks/Player1/puppet"]
 position = Vector2( 2, -2 )
 texture = ExtResource( 18 )
 
-[node name="NearLegUpper" type="Sprite" parent="Bottom/Player1/puppet/Abs"]
+[node name="NearLegUpper" type="Sprite" parent="Blocks/Player1/puppet/Abs"]
 position = Vector2( -4, 2 )
 texture = ExtResource( 17 )
 offset = Vector2( 0, 10 )
 
-[node name="NearLowerLeg" type="Sprite" parent="Bottom/Player1/puppet/Abs/NearLegUpper"]
+[node name="NearLowerLeg" type="Sprite" parent="Blocks/Player1/puppet/Abs/NearLegUpper"]
 show_behind_parent = true
 position = Vector2( -4, 18 )
 texture = ExtResource( 16 )
 offset = Vector2( -2, 10 )
 
-[node name="Foot1" type="Sprite" parent="Bottom/Player1/puppet/Abs/NearLegUpper/NearLowerLeg"]
+[node name="Foot1" type="Sprite" parent="Blocks/Player1/puppet/Abs/NearLegUpper/NearLowerLeg"]
 position = Vector2( -4, 16 )
 texture = ExtResource( 15 )
 offset = Vector2( -1, 4 )
 
-[node name="FarLegUpper" type="Sprite" parent="Bottom/Player1/puppet/Abs"]
+[node name="FarLegUpper" type="Sprite" parent="Blocks/Player1/puppet/Abs"]
 show_behind_parent = true
 position = Vector2( 6, 4 )
 texture = ExtResource( 19 )
 offset = Vector2( -2, 6 )
 
-[node name="FarLowerLeg" type="Sprite" parent="Bottom/Player1/puppet/Abs/FarLegUpper"]
+[node name="FarLowerLeg" type="Sprite" parent="Blocks/Player1/puppet/Abs/FarLegUpper"]
 show_behind_parent = true
 position = Vector2( 0, 14 )
 texture = ExtResource( 29 )
 offset = Vector2( 0, 10 )
 
-[node name="Foot2" type="Sprite" parent="Bottom/Player1/puppet/Abs/FarLegUpper/FarLowerLeg"]
+[node name="Foot2" type="Sprite" parent="Blocks/Player1/puppet/Abs/FarLegUpper/FarLowerLeg"]
 position = Vector2( 0, 20 )
 texture = ExtResource( 21 )
 offset = Vector2( 2, 2 )
 
-[node name="Torso" type="Sprite" parent="Bottom/Player1/puppet/Abs"]
+[node name="Torso" type="Sprite" parent="Blocks/Player1/puppet/Abs"]
 position = Vector2( 2, -8 )
 texture = ExtResource( 23 )
 offset = Vector2( -4, -6 )
 
-[node name="NearUpperArm" type="Sprite" parent="Bottom/Player1/puppet/Abs/Torso"]
+[node name="NearUpperArm" type="Sprite" parent="Blocks/Player1/puppet/Abs/Torso"]
 position = Vector2( -11.5811, -13.2243 )
 texture = ExtResource( 20 )
 offset = Vector2( -2, 6 )
 
-[node name="NearArmLower" type="Sprite" parent="Bottom/Player1/puppet/Abs/Torso/NearUpperArm"]
+[node name="NearArmLower" type="Sprite" parent="Blocks/Player1/puppet/Abs/Torso/NearUpperArm"]
 position = Vector2( -6, 14 )
 scale = Vector2( 1, 0.715 )
 texture = ExtResource( 22 )
 offset = Vector2( 10, 10 )
 
-[node name="NearHand" type="Sprite" parent="Bottom/Player1/puppet/Abs/Torso/NearUpperArm/NearArmLower"]
+[node name="NearHand" type="Sprite" parent="Blocks/Player1/puppet/Abs/Torso/NearUpperArm/NearArmLower"]
 position = Vector2( 0, 10 )
 texture = ExtResource( 25 )
 offset = Vector2( 4, 2 )
 
-[node name="FarArmUpper" type="Sprite" parent="Bottom/Player1/puppet/Abs/Torso"]
+[node name="FarArmUpper" type="Sprite" parent="Blocks/Player1/puppet/Abs/Torso"]
 show_behind_parent = true
 position = Vector2( 2.7699, -14.6711 )
 z_index = -1
 texture = ExtResource( 24 )
 offset = Vector2( 2, 6 )
 
-[node name="FarArmLower" type="Sprite" parent="Bottom/Player1/puppet/Abs/Torso/FarArmUpper"]
+[node name="FarArmLower" type="Sprite" parent="Blocks/Player1/puppet/Abs/Torso/FarArmUpper"]
 position = Vector2( 4, 12 )
 texture = ExtResource( 28 )
 offset = Vector2( 2, 6 )
 
-[node name="FarHand" type="Sprite" parent="Bottom/Player1/puppet/Abs/Torso/FarArmUpper/FarArmLower"]
+[node name="FarHand" type="Sprite" parent="Blocks/Player1/puppet/Abs/Torso/FarArmUpper/FarArmLower"]
 position = Vector2( 4, 12 )
 texture = ExtResource( 27 )
 offset = Vector2( -2, -6 )
 
-[node name="Head" type="Sprite" parent="Bottom/Player1/puppet/Abs/Torso"]
+[node name="Head" type="Sprite" parent="Blocks/Player1/puppet/Abs/Torso"]
 show_behind_parent = true
 position = Vector2( -5.34082, -15.5727 )
 texture = ExtResource( 26 )
 offset = Vector2( 0, -9 )
 
-[node name="Player2" type="KinematicBody2D" parent="Bottom"]
+[node name="Player2" type="KinematicBody2D" parent="Blocks"]
 position = Vector2( 96, 94 )
 collision_layer = 0
 script = ExtResource( 3 )
 upside_down = true
 anim_tree = NodePath("AnimationTree")
 
-[node name="StateMachine" type="Node" parent="Bottom/Player2"]
+[node name="StateMachine" type="Node" parent="Blocks/Player2"]
 script = ExtResource( 8 )
 
-[node name="Idle" type="Node" parent="Bottom/Player2/StateMachine"]
+[node name="Idle" type="Node" parent="Blocks/Player2/StateMachine"]
 script = ExtResource( 10 )
 
-[node name="Running" type="Node" parent="Bottom/Player2/StateMachine"]
+[node name="Running" type="Node" parent="Blocks/Player2/StateMachine"]
 script = ExtResource( 11 )
 
-[node name="Jumping" type="Node" parent="Bottom/Player2/StateMachine"]
+[node name="Jumping" type="Node" parent="Blocks/Player2/StateMachine"]
 script = ExtResource( 12 )
 
-[node name="Hover" type="Node" parent="Bottom/Player2/StateMachine"]
+[node name="Hover" type="Node" parent="Blocks/Player2/StateMachine"]
 script = ExtResource( 13 )
 
-[node name="Falling" type="Node" parent="Bottom/Player2/StateMachine"]
+[node name="Falling" type="Node" parent="Blocks/Player2/StateMachine"]
 script = ExtResource( 14 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/Player2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Player2"]
 shape = SubResource( 112 )
 
-[node name="AnimationTree" type="AnimationTree" parent="Bottom/Player2"]
+[node name="AnimationTree" type="AnimationTree" parent="Blocks/Player2"]
 tree_root = SubResource( 85 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 86 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bottom/Player2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Blocks/Player2"]
 anims/PlayerSpriteBounce = SubResource( 125 )
 anims/PlayerSpriteFalling = SubResource( 56 )
 anims/PlayerSpriteIdle = SubResource( 50 )
@@ -11468,25 +11468,25 @@ anims/PlayerSpriteStarting = SubResource( 51 )
 anims/PlayerSpriteStopping = SubResource( 53 )
 anims/RESET = SubResource( 143 )
 
-[node name="DustTransform" type="RemoteTransform2D" parent="Bottom/Player2"]
+[node name="DustTransform" type="RemoteTransform2D" parent="Blocks/Player2"]
 position = Vector2( 0, -10 )
 remote_path = NodePath("../../../Dust2")
 update_rotation = false
 update_scale = false
 
-[node name="RayCast2D" type="RayCast2D" parent="Bottom/Player2"]
+[node name="RayCast2D" type="RayCast2D" parent="Blocks/Player2"]
 position = Vector2( 0, -30 )
 enabled = true
 cast_to = Vector2( 0, -2 )
 
-[node name="puppet" type="Node2D" parent="Bottom/Player2"]
+[node name="puppet" type="Node2D" parent="Blocks/Player2"]
 modulate = Color( 0.9, 0.9, 0.9, 1 )
 scale = Vector2( 0.7, -0.7 )
 
-[node name="Abs" type="Node2D" parent="Bottom/Player2/puppet"]
+[node name="Abs" type="Node2D" parent="Blocks/Player2/puppet"]
 position = Vector2( 2, -1.92789 )
 
-[node name="Skirt" type="Polygon2D" parent="Bottom/Player2/puppet/Abs"]
+[node name="Skirt" type="Polygon2D" parent="Blocks/Player2/puppet/Abs"]
 position = Vector2( -20, -14.2857 )
 offset = Vector2( 1, 4 )
 texture = ExtResource( 42 )
@@ -11496,98 +11496,98 @@ uv = PoolVector2Array( 39, 9.2, 39, 26, 32.5, 29, 4.5, 29, 0, 26.7, 0, 10, 1.3, 
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6, 7, 8 ) ]
 bones = [ "Bone2D", PoolRealArray( 1, 0, 0, 0, 0, 1, 1, 1, 1 ), "Bone2D/Bone2D2", PoolRealArray( 1, 1, 1, 0, 0, 0, 0, 0, 0 ), "Bone2D/Bone2D3", PoolRealArray( 0, 0, 0, 1, 1, 1, 1, 0, 0 ) ]
 
-[node name="Skeleton2D" type="Skeleton2D" parent="Bottom/Player2/puppet/Abs/Skirt"]
+[node name="Skeleton2D" type="Skeleton2D" parent="Blocks/Player2/puppet/Abs/Skirt"]
 position = Vector2( 20.8571, 13.4286 )
 
-[node name="Bone2D" type="Bone2D" parent="Bottom/Player2/puppet/Abs/Skirt/Skeleton2D"]
+[node name="Bone2D" type="Bone2D" parent="Blocks/Player2/puppet/Abs/Skirt/Skeleton2D"]
 position = Vector2( 1.9082, -4.35559 )
 rest = Transform2D( 1, 0, 0, 1, 1.9082, -4.35559 )
 
-[node name="Bone2D2" type="Bone2D" parent="Bottom/Player2/puppet/Abs/Skirt/Skeleton2D/Bone2D"]
+[node name="Bone2D2" type="Bone2D" parent="Blocks/Player2/puppet/Abs/Skirt/Skeleton2D/Bone2D"]
 position = Vector2( 5.15076, 0.00744629 )
 rotation = 0.90818
 rest = Transform2D( 0.615182, 0.788386, -0.788386, 0.615182, 5.15076, 0.00744629 )
 
-[node name="Bone2D3" type="Bone2D" parent="Bottom/Player2/puppet/Abs/Skirt/Skeleton2D/Bone2D"]
+[node name="Bone2D3" type="Bone2D" parent="Blocks/Player2/puppet/Abs/Skirt/Skeleton2D/Bone2D"]
 position = Vector2( -6.76532, 0.641296 )
 rotation = 2.32354
 rest = Transform2D( -0.683648, 0.729812, -0.729812, -0.683648, -6.76532, 0.641296 )
 
-[node name="NearLegUpper" type="Sprite" parent="Bottom/Player2/puppet/Abs"]
+[node name="NearLegUpper" type="Sprite" parent="Blocks/Player2/puppet/Abs"]
 show_behind_parent = true
 position = Vector2( -4, 2 )
 texture = ExtResource( 36 )
 offset = Vector2( 0, 10 )
 
-[node name="NearLowerLeg" type="Sprite" parent="Bottom/Player2/puppet/Abs/NearLegUpper"]
+[node name="NearLowerLeg" type="Sprite" parent="Blocks/Player2/puppet/Abs/NearLegUpper"]
 show_behind_parent = true
 position = Vector2( -4, 18 )
 texture = ExtResource( 40 )
 offset = Vector2( -2, 10 )
 
-[node name="Foot1" type="Sprite" parent="Bottom/Player2/puppet/Abs/NearLegUpper/NearLowerLeg"]
+[node name="Foot1" type="Sprite" parent="Blocks/Player2/puppet/Abs/NearLegUpper/NearLowerLeg"]
 position = Vector2( -4, 16 )
 texture = ExtResource( 35 )
 offset = Vector2( -1, 4 )
 
-[node name="FarLegUpper" type="Sprite" parent="Bottom/Player2/puppet/Abs"]
+[node name="FarLegUpper" type="Sprite" parent="Blocks/Player2/puppet/Abs"]
 show_behind_parent = true
 position = Vector2( 6, 4 )
 texture = ExtResource( 31 )
 offset = Vector2( -1, 6 )
 
-[node name="FarLowerLeg" type="Sprite" parent="Bottom/Player2/puppet/Abs/FarLegUpper"]
+[node name="FarLowerLeg" type="Sprite" parent="Blocks/Player2/puppet/Abs/FarLegUpper"]
 show_behind_parent = true
 position = Vector2( 0, 14 )
 texture = ExtResource( 38 )
 offset = Vector2( 0, 11 )
 
-[node name="Foot2" type="Sprite" parent="Bottom/Player2/puppet/Abs/FarLegUpper/FarLowerLeg"]
+[node name="Foot2" type="Sprite" parent="Blocks/Player2/puppet/Abs/FarLegUpper/FarLowerLeg"]
 position = Vector2( 0, 20 )
 texture = ExtResource( 37 )
 offset = Vector2( 4, 2 )
 
-[node name="Torso" type="Sprite" parent="Bottom/Player2/puppet/Abs"]
+[node name="Torso" type="Sprite" parent="Blocks/Player2/puppet/Abs"]
 show_behind_parent = true
 position = Vector2( 2, -8 )
 texture = ExtResource( 30 )
 offset = Vector2( -4, -6 )
 
-[node name="NearUpperArm" type="Sprite" parent="Bottom/Player2/puppet/Abs/Torso"]
+[node name="NearUpperArm" type="Sprite" parent="Blocks/Player2/puppet/Abs/Torso"]
 position = Vector2( -11.5811, -13.2243 )
 z_index = 1
 texture = ExtResource( 34 )
 offset = Vector2( -2, 6 )
 
-[node name="NearArmLower" type="Sprite" parent="Bottom/Player2/puppet/Abs/Torso/NearUpperArm"]
+[node name="NearArmLower" type="Sprite" parent="Blocks/Player2/puppet/Abs/Torso/NearUpperArm"]
 position = Vector2( -6, 14 )
 scale = Vector2( 1, 0.715 )
 texture = ExtResource( 41 )
 offset = Vector2( 0, 5 )
 
-[node name="NearHand" type="Sprite" parent="Bottom/Player2/puppet/Abs/Torso/NearUpperArm/NearArmLower"]
+[node name="NearHand" type="Sprite" parent="Blocks/Player2/puppet/Abs/Torso/NearUpperArm/NearArmLower"]
 position = Vector2( 0, 10 )
 texture = ExtResource( 32 )
 offset = Vector2( 1, 4 )
 
-[node name="FarArmUpper" type="Sprite" parent="Bottom/Player2/puppet/Abs/Torso"]
+[node name="FarArmUpper" type="Sprite" parent="Blocks/Player2/puppet/Abs/Torso"]
 show_behind_parent = true
 position = Vector2( 2.7699, -14.6711 )
 z_index = -1
 texture = ExtResource( 39 )
 offset = Vector2( 2, 6 )
 
-[node name="FarArmLower" type="Sprite" parent="Bottom/Player2/puppet/Abs/Torso/FarArmUpper"]
+[node name="FarArmLower" type="Sprite" parent="Blocks/Player2/puppet/Abs/Torso/FarArmUpper"]
 position = Vector2( 4, 12 )
 texture = ExtResource( 43 )
 offset = Vector2( 2, 5 )
 
-[node name="FarHand" type="Sprite" parent="Bottom/Player2/puppet/Abs/Torso/FarArmUpper/FarArmLower"]
+[node name="FarHand" type="Sprite" parent="Blocks/Player2/puppet/Abs/Torso/FarArmUpper/FarArmLower"]
 position = Vector2( 4, 12 )
 texture = ExtResource( 33 )
 offset = Vector2( 1, 3 )
 
-[node name="Head" type="Sprite" parent="Bottom/Player2/puppet/Abs/Torso"]
+[node name="Head" type="Sprite" parent="Blocks/Player2/puppet/Abs/Torso"]
 show_behind_parent = true
 position = Vector2( -5.34082, -15.5727 )
 texture = ExtResource( 6 )
@@ -11614,7 +11614,6 @@ default = "none"
 
 [node name="PowerUp" parent="." instance=ExtResource( 45 )]
 position = Vector2( 288, 416 )
-powerup_id = 0
 
 [node name="PowerUp3" parent="." instance=ExtResource( 45 )]
 position = Vector2( 224, 224 )
@@ -11637,27 +11636,27 @@ powerup_id = 5
 position = Vector2( 800, 352 )
 powerup_id = 4
 
-[connection signal="state_entered" from="Bottom/Player1/StateMachine/Idle" to="Bottom/Player1" method="_on_Idle_state_entered"]
-[connection signal="coyote_time_start" from="Bottom/Player1/StateMachine/Running" to="Bottom/Player1/StateMachine/Falling" method="_on_Running_coyote_time_start"]
-[connection signal="facing_changed" from="Bottom/Player1/StateMachine/Running" to="Bottom/Player1" method="_on_facing_changed"]
-[connection signal="skid" from="Bottom/Player1/StateMachine/Running" to="Bottom/Player1" method="_on_Running_skid"]
-[connection signal="state_entered" from="Bottom/Player1/StateMachine/Running" to="Bottom/Player1" method="_on_Running_state_entered"]
-[connection signal="facing_changed" from="Bottom/Player1/StateMachine/Jumping" to="Bottom/Player1" method="_on_facing_changed"]
-[connection signal="state_entered" from="Bottom/Player1/StateMachine/Jumping" to="Bottom/Player1" method="_on_Jumping_state_entered"]
-[connection signal="facing_changed" from="Bottom/Player1/StateMachine/Hover" to="Bottom/Player1" method="_on_facing_changed"]
-[connection signal="state_entered" from="Bottom/Player1/StateMachine/Hover" to="Bottom/Player1" method="_on_Hover_state_entered"]
-[connection signal="facing_changed" from="Bottom/Player1/StateMachine/Falling" to="Bottom/Player1" method="_on_facing_changed"]
-[connection signal="state_entered" from="Bottom/Player1/StateMachine/Falling" to="Bottom/Player1" method="_on_Falling_state_entered"]
-[connection signal="state_entered" from="Bottom/Player2/StateMachine/Idle" to="Bottom/Player2" method="_on_Idle_state_entered"]
-[connection signal="coyote_time_start" from="Bottom/Player2/StateMachine/Running" to="Bottom/Player2/StateMachine/Falling" method="_on_Running_coyote_time_start"]
-[connection signal="facing_changed" from="Bottom/Player2/StateMachine/Running" to="Bottom/Player2" method="_on_facing_changed"]
-[connection signal="skid" from="Bottom/Player2/StateMachine/Running" to="Bottom/Player2" method="_on_Running_skid"]
-[connection signal="state_entered" from="Bottom/Player2/StateMachine/Running" to="Bottom/Player2" method="_on_Running_state_entered"]
-[connection signal="facing_changed" from="Bottom/Player2/StateMachine/Jumping" to="Bottom/Player2" method="_on_facing_changed"]
-[connection signal="state_entered" from="Bottom/Player2/StateMachine/Jumping" to="Bottom/Player2" method="_on_Jumping_state_entered"]
-[connection signal="facing_changed" from="Bottom/Player2/StateMachine/Hover" to="Bottom/Player2" method="_on_facing_changed"]
-[connection signal="state_entered" from="Bottom/Player2/StateMachine/Hover" to="Bottom/Player2" method="_on_Hover_state_entered"]
-[connection signal="facing_changed" from="Bottom/Player2/StateMachine/Falling" to="Bottom/Player2" method="_on_facing_changed"]
-[connection signal="state_entered" from="Bottom/Player2/StateMachine/Falling" to="Bottom/Player2" method="_on_Falling_state_entered"]
+[connection signal="state_entered" from="Blocks/Player1/StateMachine/Idle" to="Blocks/Player1" method="_on_Idle_state_entered"]
+[connection signal="coyote_time_start" from="Blocks/Player1/StateMachine/Running" to="Blocks/Player1/StateMachine/Falling" method="_on_Running_coyote_time_start"]
+[connection signal="facing_changed" from="Blocks/Player1/StateMachine/Running" to="Blocks/Player1" method="_on_facing_changed"]
+[connection signal="skid" from="Blocks/Player1/StateMachine/Running" to="Blocks/Player1" method="_on_Running_skid"]
+[connection signal="state_entered" from="Blocks/Player1/StateMachine/Running" to="Blocks/Player1" method="_on_Running_state_entered"]
+[connection signal="facing_changed" from="Blocks/Player1/StateMachine/Jumping" to="Blocks/Player1" method="_on_facing_changed"]
+[connection signal="state_entered" from="Blocks/Player1/StateMachine/Jumping" to="Blocks/Player1" method="_on_Jumping_state_entered"]
+[connection signal="facing_changed" from="Blocks/Player1/StateMachine/Hover" to="Blocks/Player1" method="_on_facing_changed"]
+[connection signal="state_entered" from="Blocks/Player1/StateMachine/Hover" to="Blocks/Player1" method="_on_Hover_state_entered"]
+[connection signal="facing_changed" from="Blocks/Player1/StateMachine/Falling" to="Blocks/Player1" method="_on_facing_changed"]
+[connection signal="state_entered" from="Blocks/Player1/StateMachine/Falling" to="Blocks/Player1" method="_on_Falling_state_entered"]
+[connection signal="state_entered" from="Blocks/Player2/StateMachine/Idle" to="Blocks/Player2" method="_on_Idle_state_entered"]
+[connection signal="coyote_time_start" from="Blocks/Player2/StateMachine/Running" to="Blocks/Player2/StateMachine/Falling" method="_on_Running_coyote_time_start"]
+[connection signal="facing_changed" from="Blocks/Player2/StateMachine/Running" to="Blocks/Player2" method="_on_facing_changed"]
+[connection signal="skid" from="Blocks/Player2/StateMachine/Running" to="Blocks/Player2" method="_on_Running_skid"]
+[connection signal="state_entered" from="Blocks/Player2/StateMachine/Running" to="Blocks/Player2" method="_on_Running_state_entered"]
+[connection signal="facing_changed" from="Blocks/Player2/StateMachine/Jumping" to="Blocks/Player2" method="_on_facing_changed"]
+[connection signal="state_entered" from="Blocks/Player2/StateMachine/Jumping" to="Blocks/Player2" method="_on_Jumping_state_entered"]
+[connection signal="facing_changed" from="Blocks/Player2/StateMachine/Hover" to="Blocks/Player2" method="_on_facing_changed"]
+[connection signal="state_entered" from="Blocks/Player2/StateMachine/Hover" to="Blocks/Player2" method="_on_Hover_state_entered"]
+[connection signal="facing_changed" from="Blocks/Player2/StateMachine/Falling" to="Blocks/Player2" method="_on_facing_changed"]
+[connection signal="state_entered" from="Blocks/Player2/StateMachine/Falling" to="Blocks/Player2" method="_on_Falling_state_entered"]
 [connection signal="animation_finished" from="Dust1" to="Dust1" method="_on_animation_finished"]
 [connection signal="animation_finished" from="Dust2" to="Dust2" method="_on_animation_finished"]

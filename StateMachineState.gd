@@ -7,11 +7,11 @@ signal state_exited
 var next_state_name := ""
 
 
-func _state_physics_process(delta :float) -> void:
+func _state_physics_process(_delta :float) -> void:
 	pass
 
 
-func _state_input(event :InputEvent) -> void:
+func _state_input(_event :InputEvent) -> void:
 	pass
 
 
