@@ -16,7 +16,8 @@ func hit_bottom(player):
 func set_powerup_id(new_id) -> void:
 	powerup_id = new_id
 	if get_node("Textures/Icon"):
-		$Textures/Icon.region_rect.position.y = new_id * 64
+		$Textures/Icon.region_rect.position.y = (new_id % 3) * 64
+		$Textures/Icon.region_rect.position.x = 224 + (new_id / 3) * 64
 
 
 func set_upside_down(new_value):

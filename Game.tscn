@@ -11614,17 +11614,28 @@ default = "none"
 
 [node name="PowerUp" parent="." instance=ExtResource( 45 )]
 position = Vector2( 288, 416 )
+powerup_id = 0
 
 [node name="PowerUp3" parent="." instance=ExtResource( 45 )]
 position = Vector2( 224, 224 )
+powerup_id = 2
 
 [node name="PowerUp2" parent="." instance=ExtResource( 45 )]
 position = Vector2( 672, 224 )
+powerup_id = 1
 upside_down = true
 
 [node name="PowerUp4" parent="." instance=ExtResource( 45 )]
 position = Vector2( 672, 480 )
-upside_down = true
+powerup_id = 3
+
+[node name="PowerUp5" parent="." instance=ExtResource( 45 )]
+position = Vector2( 480, 352 )
+powerup_id = 5
+
+[node name="PowerUp6" parent="." instance=ExtResource( 45 )]
+position = Vector2( 800, 352 )
+powerup_id = 4
 
 [connection signal="state_entered" from="Bottom/Player1/StateMachine/Idle" to="Bottom/Player1" method="_on_Idle_state_entered"]
 [connection signal="coyote_time_start" from="Bottom/Player1/StateMachine/Running" to="Bottom/Player1/StateMachine/Falling" method="_on_Running_coyote_time_start"]

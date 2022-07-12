@@ -131,7 +131,7 @@ extents = Vector2( 32, 32 )
 
 [node name="PowerUp" type="StaticBody2D"]
 script = ExtResource( 2 )
-powerup_id = 1
+powerup_id = -1
 
 [node name="Idle" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Textures/Fill")
@@ -162,4 +162,4 @@ region_rect = Rect2( 160, 128, 64, 64 )
 [node name="Icon" type="Sprite" parent="Textures"]
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 224, 64, 64, 64 )
+region_rect = Rect2( 224, -64, 64, 64 )
