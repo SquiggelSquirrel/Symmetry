@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://SplitScreen.gd" type="Script" id=1]
 [ext_resource path="res://Game.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Camera2D.gd" type="Script" id=3]
 [ext_resource path="res://Glowy.tres" type="Environment" id=4]
 [ext_resource path="res://StatsBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://CameraSplit.gd" type="Script" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 0 )
+border_blend = true
+shadow_color = Color( 1, 1, 1, 0.6 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -32,18 +41,21 @@ render_target_update_mode = 3
 [node name="Camera2D" type="Camera2D" parent="HBoxContainer/ViewportContainer/Viewport"]
 current = true
 
-[node name="SplitScreen" type="VBoxContainer" parent="HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 margin_left = 68.0
 margin_right = 1024.0
 margin_bottom = 640.0
 size_flags_horizontal = 3
+
+[node name="SplitScreen" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+margin_right = 956.0
+margin_bottom = 640.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ViewportContainer2" type="ViewportContainer" parent="HBoxContainer/SplitScreen"]
+[node name="ViewportContainer2" type="ViewportContainer" parent="HBoxContainer/MarginContainer/SplitScreen"]
 margin_right = 956.0
 margin_bottom = 320.0
 size_flags_vertical = 3
@@ -52,20 +64,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Viewport" type="Viewport" parent="HBoxContainer/SplitScreen/ViewportContainer2"]
+[node name="Viewport" type="Viewport" parent="HBoxContainer/MarginContainer/SplitScreen/ViewportContainer2"]
 size = Vector2( 956, 320 )
 own_world = true
 handle_input_locally = false
 usage = 0
 render_target_update_mode = 3
 
-[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SplitScreen/ViewportContainer2/Viewport"]
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/MarginContainer/SplitScreen/ViewportContainer2/Viewport"]
 current = true
 script = ExtResource( 3 )
 game = NodePath("../../../ViewportContainer/Viewport/Game")
 player_id = 2
 
-[node name="ViewportContainer" type="ViewportContainer" parent="HBoxContainer/SplitScreen"]
+[node name="ViewportContainer" type="ViewportContainer" parent="HBoxContainer/MarginContainer/SplitScreen"]
 margin_top = 320.0
 margin_right = 956.0
 margin_bottom = 640.0
@@ -75,20 +87,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Viewport" type="Viewport" parent="HBoxContainer/SplitScreen/ViewportContainer"]
+[node name="Viewport" type="Viewport" parent="HBoxContainer/MarginContainer/SplitScreen/ViewportContainer"]
 size = Vector2( 956, 320 )
 own_world = true
 handle_input_locally = false
 usage = 0
 render_target_update_mode = 3
 
-[node name="Game" parent="HBoxContainer/SplitScreen/ViewportContainer/Viewport" instance=ExtResource( 2 )]
+[node name="Game" parent="HBoxContainer/MarginContainer/SplitScreen/ViewportContainer/Viewport" instance=ExtResource( 2 )]
 
-[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SplitScreen/ViewportContainer/Viewport"]
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/MarginContainer/SplitScreen/ViewportContainer/Viewport"]
 current = true
 script = ExtResource( 3 )
 game = NodePath("../Game")
 player_id = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 318.0
+margin_right = 956.0
+margin_bottom = 322.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 6 )
+cam1 = NodePath("../SplitScreen/ViewportContainer2/Viewport/Camera2D")
+cam2 = NodePath("../SplitScreen/ViewportContainer/Viewport/Camera2D")
+
+[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer/PanelContainer"]
+margin_top = 2.0
+margin_right = 956.0
+margin_bottom = 2.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )

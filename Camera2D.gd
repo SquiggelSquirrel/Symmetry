@@ -9,7 +9,7 @@ func _process(_delta):
 	if ! player:
 		return
 	position = player.position
-#	if player_id == 1:
-#		position.y = 480
-#	else:
-#		position.y = 160
+	if player.upside_down:
+		position += Vector2(0,2)
+	else:
+		position += Vector2(0,-2)

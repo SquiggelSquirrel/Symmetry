@@ -11318,7 +11318,7 @@ tile_data = PoolIntArray( -262104, 2, 0, -262103, 2, 1, -262102, 2, 1, -262101, 
 script = ExtResource( 5 )
 
 [node name="Player1" type="KinematicBody2D" parent="Blocks"]
-position = Vector2( 608, 480 )
+position = Vector2( 608, 482 )
 collision_layer = 0
 script = ExtResource( 3 )
 anim_tree = NodePath("AnimationTree")
@@ -11468,7 +11468,7 @@ texture = ExtResource( 26 )
 offset = Vector2( 0, -9 )
 
 [node name="Player2" type="KinematicBody2D" parent="Blocks"]
-position = Vector2( 608, 160 )
+position = Vector2( 608, 158 )
 collision_layer = 0
 script = ExtResource( 3 )
 upside_down = true
@@ -11646,7 +11646,6 @@ rotation = -0.501757
 script = ExtResource( 47 )
 target_player = NodePath("../Blocks/Player2")
 other_player = NodePath("../Blocks/Player1")
-bi = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick"]
 rotation = -2.98023e-08
@@ -11666,7 +11665,6 @@ rotation = -0.501757
 script = ExtResource( 47 )
 target_player = NodePath("../Blocks/Player1")
 other_player = NodePath("../Blocks/Player2")
-bi = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick2"]
 rotation = -2.98023e-08
@@ -11689,7 +11687,7 @@ script = ExtResource( 9 )
 default = "none"
 
 [node name="Dust2" type="AnimatedSprite" parent="."]
-position = Vector2( 608, 150 )
+position = Vector2( 608, 148 )
 scale = Vector2( 1.4, 1.4 )
 frames = SubResource( 190 )
 animation = "none"
@@ -11700,6 +11698,7 @@ default = "none"
 
 [node name="PowerUp" parent="." instance=ExtResource( 45 )]
 position = Vector2( 288, 416 )
+powerup_id = 1
 
 [node name="PowerUp3" parent="." instance=ExtResource( 45 )]
 position = Vector2( 224, 224 )
