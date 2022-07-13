@@ -56,7 +56,6 @@ func set_player2_hearts(new_value :int) -> void:
 
 
 func set_player1_powerup_id(new_value :int) -> void:
-	print('set_player1_powerup_id')
 	$Player1/PowerUp.powerup_id = new_value
 	player1_powerup_id = new_value
 

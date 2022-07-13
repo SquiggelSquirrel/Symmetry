@@ -2,16 +2,33 @@ extends Area2D
 
 export(NodePath) var target_player
 export(NodePath) var other_player
+export(bool) var bi = false
 var velocity := Vector2.RIGHT
 enum State {ORBIT, ATTACK, RETURN, ORBIT_OTHER, ATTACK_FROM_OTHER, RETURN_OTHER}
 var current_state :int = State.ORBIT
-onready var target_position :Vector2
 onready var trigger = 'action_1' if get_node(target_player).name == 'Player1' else 'action_2'
+
+var start_point
+var start_speed
+var t
+
+
+static func parabola(start_point, end_point, distance, t) -> Vector2:
+	var gravity = 200.0
+	var y = lerp(start_point.y, end_point.y, t)
+	var x
+	if t <= 0.5:
+		x = start_point.x + (distance * ease(t * 2.0, 0.4))
+	else:
+		var apex = start_point.x + distance
+		x = lerp(apex, end_point.x, ease((t - 0.5) * 2.0, 2.0))
+	return Vector2(x, y)
 
 
 func _process(delta):
 	match current_state:
 		State.ORBIT, State.ORBIT_OTHER:
+			var target_position
 			if current_state == State.ORBIT:
 				target_position = get_node(target_player).position
 			else:
@@ -27,58 +44,84 @@ func _process(delta):
 			velocity += (target_position - position) * delta * 32.0
 			position += velocity * delta
 		
-		State.ATTACK, State.ATTACK_FROM_OTHER:
-			velocity *= 0.9
-			velocity += (target_position - position) * delta * 32.0
-			velocity = velocity.clamped(
-				position.distance_squared_to(target_position) / 2.0
-			)
-			position += velocity * delta
-			if position.distance_squared_to(target_position) < 420.0:
-				if current_state == State.ATTACK:
-					current_state = State.RETURN_OTHER
-				else:
-					current_state = State.RETURN
-			if ! Input.is_action_pressed(trigger):
-				if current_state == State.ATTACK:
+		State.ATTACK:
+			var player = get_node(target_player)
+			t += delta
+			var old_position = position
+			if bi:
+				start_point = player.position
+				var end_point = player.position + Vector2.UP * (-320 if player.upside_down else 320)
+				position = parabola(start_point, end_point, start_speed, t)
+			else:
+				position = parabola(start_point, player.position, start_speed, t)
+			velocity = (position - old_position) / delta
+			if t > 0.5:
+				if bi:
 					current_state = State.RETURN_OTHER
 				else:
 					current_state = State.RETURN
 		
-		State.RETURN, State.RETURN_OTHER:
-			velocity *= 0.9
-			var player_node
-			if current_state == State.RETURN:
-				player_node = get_node(target_player)
+		State.ATTACK_FROM_OTHER:
+			var player = get_node(other_player)
+			start_point = player.position
+			var end_point = player.position + Vector2.UP * (-320 if player.upside_down else 320)
+			t += delta
+			var old_position = position
+			position = parabola(start_point, end_point, start_speed, t)
+			velocity = (position - old_position) / delta
+			if t > 0.5:
+				current_state = State.RETURN
+		
+		State.RETURN:
+			var player = get_node(target_player)
+			t += delta
+			var old_position = position
+			if bi:
+				start_point = player.position + Vector2.UP * (-320 if player.upside_down else 320)
+				var other = get_node(other_player)
+				var end_point = player.position
+				position = parabola(start_point, end_point, start_speed, t)
 			else:
-				player_node = get_node(other_player)
-			target_position = player_node.position
-			
-			velocity += (target_position - position) * delta * 48.0
-			position += velocity * delta
-			if position.distance_squared_to(target_position) < 420.0:
-				velocity = velocity.clamped(210.0)
+				position = parabola(start_point, player.position, start_speed, t)
+			velocity = (position - old_position) / delta
+			if t >= 1.0:
+				velocity = velocity.clamped(200.0)
 				if Input.is_action_pressed(trigger):
-					if current_state == State.RETURN:
-						current_state = State.ATTACK
-					else:
-						current_state = State.ATTACK_FROM_OTHER
-					target_position = player_node.position + player_node.facing * Vector2.RIGHT * 7.0 * 64.0
+					current_state = State.ATTACK
+					enter_attack_state(player)
 				else:
-					if current_state == State.RETURN:
-						current_state = State.ORBIT
-					else:
-						current_state = State.ORBIT_OTHER
+					current_state = State.ORBIT
+		
+		State.RETURN_OTHER:
+			var player = get_node(other_player)
+			t += delta
+			var old_position = position
+			start_point = player.position + Vector2.UP * (-320 if player.upside_down else 320)
+			var end_point = player.position
+			var other = get_node(target_player)
+			position = parabola(start_point, end_point, start_speed, t)
+			velocity = (position - old_position) / delta
+			if t >= 1.0:
+				velocity = velocity.clamped(200.0)
+				if Input.is_action_pressed(trigger):
+					current_state = State.ATTACK_FROM_OTHER
+					enter_attack_state(player)
+				else:
+					current_state = State.ORBIT_OTHER
 
 
 func _input(event):
-	if event.is_action_pressed(trigger) and current_state in [State.ORBIT, State.ORBIT_OTHER]:
-		var player_node
-		if current_state == State.ORBIT:
-			player_node = get_node(target_player)
-			current_state = State.ATTACK
-		else:
-			player_node = get_node(other_player)
-			current_state = State.ATTACK_FROM_OTHER
-		target_position = player_node.position + player_node.facing * Vector2.RIGHT * 7.0 * 64.0
-		target_position += Vector2.UP * 160.0
+	if event.is_action_pressed(trigger):
+		match current_state:
+			State.ORBIT:
+				current_state = State.ATTACK
+				enter_attack_state(get_node(target_player))
+			State.ORBIT_OTHER:
+				current_state = State.ATTACK_FROM_OTHER
+				enter_attack_state(get_node(other_player))
+
+
+func enter_attack_state(player_node :Node2D) -> void:
+	start_point = player_node.position
+	start_speed = 400.0 * player_node.facing
+	t = 0.0

@@ -47,6 +47,6 @@ func get_subcells(parent_cell: Vector2) -> Array:
 
 func get_parent_cell(sub_cell :Vector2) -> Vector2:
 	return Vector2(
-		int(sub_cell.x / 2),
-		int(sub_cell.y / 2)
+		floor(sub_cell.x / 2),
+		floor(sub_cell.y / 2)
 	)

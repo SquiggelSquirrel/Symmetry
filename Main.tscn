@@ -61,7 +61,6 @@ render_target_update_mode = 3
 
 [node name="Camera2D" type="Camera2D" parent="HBoxContainer/SplitScreen/ViewportContainer2/Viewport"]
 current = true
-limit_left = 60
 script = ExtResource( 3 )
 game = NodePath("../../../ViewportContainer/Viewport/Game")
 player_id = 2
@@ -87,7 +86,6 @@ render_target_update_mode = 3
 
 [node name="Camera2D" type="Camera2D" parent="HBoxContainer/SplitScreen/ViewportContainer/Viewport"]
 current = true
-limit_left = 60
 script = ExtResource( 3 )
 game = NodePath("../Game")
 player_id = 1
