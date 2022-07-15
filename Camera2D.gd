@@ -2,10 +2,10 @@ extends Camera2D
 
 export(NodePath) var game
 export(int) var player_id
-onready var player = get_node(game).get_player_node(player_id)
 
 
 func _process(_delta):
+	var player = get_node(game).get_player_node(player_id)
 	if ! player:
 		return
 	position = player.position

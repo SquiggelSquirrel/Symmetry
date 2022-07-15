@@ -1,8 +1,6 @@
 extends PlayerState
 
 const HOVER_LIMIT := 0.3
-const RUN_SPEED := 200
-const GRAVITY = -900
 var hover_time := 0.0
 
 
@@ -33,3 +31,7 @@ func _state_physics_process(delta :float) -> void:
 			10.0 * delta)
 	
 	player.velocity = player.move_and_slide(player.velocity)
+	
+	if is_hurt():
+		next_state_name = "Hurt"
+		return

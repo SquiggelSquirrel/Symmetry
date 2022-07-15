@@ -11,6 +11,7 @@ onready var trigger = 'action_1' if get_node(target_player).name == 'Player1' el
 var start_point
 var start_speed
 var t
+var saved_position
 
 
 func _ready():
@@ -20,6 +21,10 @@ func _ready():
 	else:
 		var ok = Globals.connect("player2_powerup_change", self, "powerup_change")
 		assert(ok == OK)
+	var ok = get_node(target_player).connect('teleport', self, "_on_target_player_teleport")
+	assert(ok == OK)
+	ok = get_node(other_player).connect('teleport', self, "_on_other_player_teleport")
+	assert(ok == OK)
 
 
 func powerup_change():
@@ -53,10 +58,10 @@ static func parabola(start_point, end_point, distance, t) -> Vector2:
 	var y = lerp(start_point.y, end_point.y, t)
 	var x
 	if t <= 0.5:
-		x = start_point.x + (distance * ease(t * 2.0, 0.4))
+		x = start_point.x + (distance * ease(t * 2.0, 0.2))
 	else:
 		var apex = start_point.x + distance
-		x = lerp(apex, end_point.x, ease((t - 0.5) * 2.0, 2.0))
+		x = lerp(apex, end_point.x, ease((t - 0.5) * 2.0, 4.0))
 	return Vector2(x, y)
 
 
@@ -161,3 +166,20 @@ func enter_attack_state(player_node :Node2D) -> void:
 	start_point = player_node.position
 	start_speed = 400.0 * player_node.facing
 	t = 0.0
+
+
+func _on_target_player_teleport() -> void:
+	if current_state == State.ORBIT:
+		position = get_node(target_player).position + Vector2(0,12)
+
+
+func _on_other_player_teleport() -> void:
+	if current_state == State.ORBIT_OTHER:
+		position = get_node(other_player).position + Vector2(0,12)
+
+
+func _on_Brick_body_entered(body):
+	if current_state in [State.ORBIT, State.ORBIT_OTHER]:
+		return
+	if body.has_method("exorcise"):
+		body.exorcise()

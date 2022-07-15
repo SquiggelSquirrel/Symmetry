@@ -13,5 +13,4 @@ func _process(delta) -> void:
 	):
 		modulate.a = lerp(modulate.a, 0.0, delta)
 	else:
-		print(abs(c2.position.y - c1.position.y - 320))
 		modulate.a = lerp(modulate.a, 1.0, delta)

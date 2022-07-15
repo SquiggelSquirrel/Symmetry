@@ -9,3 +9,9 @@ func get_player_node(id):
 		return get_node(player_1)
 	else:
 		return get_node(player_2)
+
+
+func swap_players():
+	var tmp = player_1
+	player_1 = player_2
+	player_2 = tmp

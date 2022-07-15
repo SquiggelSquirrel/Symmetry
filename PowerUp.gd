@@ -20,7 +20,9 @@ func hit(player):
 	if double_tap_prevented:
 		return
 	double_tap_prevented = true
-	get_tree().create_timer(0.5).connect("timeout", self, "double_tap_timeout")
+	var ok = get_tree().create_timer(0.5).connect(
+			"timeout", self, "double_tap_timeout")
+	assert(ok == OK)
 	match player.name:
 		'Player1':
 			var tmp_powerup_id = Globals.player1_powerup_id

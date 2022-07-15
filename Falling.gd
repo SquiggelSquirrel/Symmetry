@@ -1,7 +1,5 @@
 extends PlayerState
 
-const RUN_SPEED := 200
-const GRAVITY = -900
 const JUMP_BUFFER := 0.2
 const COYOTE_LIMIT := 0.1
 var jump_time := 0.0
@@ -22,6 +20,10 @@ func _state_physics_process(delta :float) -> void:
 	player.velocity.y += GRAVITY * get_up() * delta
 	
 	player.velocity = player.move_and_slide(player.velocity)
+	
+	if is_hurt():
+		next_state_name = "Hurt"
+		return
 	
 	for i in player.get_slide_count():
 		var collision = player.get_slide_collision(i)

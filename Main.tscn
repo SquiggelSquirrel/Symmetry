@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://SplitScreen.gd" type="Script" id=1]
 [ext_resource path="res://Game.tscn" type="PackedScene" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Glowy.tres" type="Environment" id=4]
 [ext_resource path="res://StatsBar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://CameraSplit.gd" type="Script" id=6]
+[ext_resource path="res://Restart.gd" type="Script" id=7]
+[ext_resource path="res://OpenSans-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://GameOver.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -14,6 +17,89 @@ border_width_bottom = 2
 border_color = Color( 1, 1, 1, 0 )
 border_blend = true
 shadow_color = Color( 1, 1, 1, 0.6 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 1, 0.447059, 0.643137, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+shadow_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.521569, 0.572549, 1, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+shadow_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.521569, 0.572549, 1, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+shadow_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 32
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.647059, 0, 1, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 8 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 7 )
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 1, 1, 1, 1 )
+Button/colors/font_color_focus = Color( 1, 1, 1, 1 )
+Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
+Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 9 )
+Button/styles/hover = SubResource( 9 )
+Button/styles/normal = SubResource( 5 )
+Button/styles/pressed = SubResource( 10 )
+Label/fonts/font = SubResource( 8 )
+Panel/styles/panel = SubResource( 2 )
+PanelContainer/styles/panel = SubResource( 3 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -118,6 +204,76 @@ cam2 = NodePath("../SplitScreen/ViewportContainer/Viewport/Camera2D")
 margin_top = 2.0
 margin_right = 956.0
 margin_bottom = 2.0
+
+[node name="GameOver" type="CenterContainer" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOver"]
+margin_left = 395.0
+margin_top = 246.0
+margin_right = 628.0
+margin_bottom = 394.0
+theme = SubResource( 4 )
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOver/MarginContainer"]
+margin_right = 233.0
+margin_bottom = 148.0
+
+[node name="Panel" type="Panel" parent="GameOver/MarginContainer/PanelContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 229.0
+margin_bottom = 144.0
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOver/MarginContainer"]
+margin_right = 233.0
+margin_bottom = 148.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/MarginContainer/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 229.0
+margin_bottom = 144.0
+custom_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOver/MarginContainer/MarginContainer/VBoxContainer"]
+margin_right = 225.0
+margin_bottom = 101.0
+custom_constants/margin_right = 28
+custom_constants/margin_top = 28
+custom_constants/margin_left = 28
+custom_constants/margin_bottom = 28
+
+[node name="Label" type="Label" parent="GameOver/MarginContainer/MarginContainer/VBoxContainer/MarginContainer"]
+margin_left = 28.0
+margin_top = 28.0
+margin_right = 197.0
+margin_bottom = 73.0
+text = "Game Over"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GameOver/MarginContainer/MarginContainer/VBoxContainer"]
+margin_top = 101.0
+margin_right = 225.0
+margin_bottom = 140.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 0
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 8
+
+[node name="Restart" type="Button" parent="GameOver/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+margin_left = 4.0
+margin_right = 221.0
+margin_bottom = 31.0
+text = "Restart"
+script = ExtResource( 7 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )

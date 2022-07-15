@@ -1,9 +1,7 @@
 extends PlayerState
 
-const RUN_SPEED := 200
 const INITIAL_SPEED = 500
 const EARLY_RELEASE_CLAMP = 200
-const GRAVITY = -900
 
 
 func state_enter() -> void:
@@ -32,6 +30,10 @@ func _state_physics_process(delta :float) -> void:
 	player.velocity.y += GRAVITY * get_up() * delta
 	
 	player.velocity = player.move_and_slide(player.velocity)
+	
+	if is_hurt():
+		next_state_name = "Hurt"
+		return
 	
 	var is_on_ceiling = false
 	for i in player.get_slide_count():
