@@ -43,7 +43,8 @@ func _input(event):
 
 
 func hurt():
-	$StateMachine.set_state("Hurt")
+	if $StateMachine.active_state.name != "Hurt":
+		$StateMachine.set_state("Hurt")
 
 
 func is_on_floor() -> bool:

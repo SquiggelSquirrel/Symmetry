@@ -10,6 +10,7 @@ func _state_physics_process(delta :float) -> void:
 	
 	if facing != 0 and facing != player.facing:
 		emit_signal("skid")
+		$SFX.play()
 		emit_signal("facing_changed", facing)
 	
 	player.velocity.x = lerp(

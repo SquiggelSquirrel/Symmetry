@@ -3,5 +3,5 @@ extends Button
 
 func _pressed():
 	$SFX.play()
-	Globals.restart()
+	Globals.next_level()
 	get_tree().paused = false

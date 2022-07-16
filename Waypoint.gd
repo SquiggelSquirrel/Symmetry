@@ -9,7 +9,6 @@ var active = true setget set_active
 
 func _ready():
 	if player1:
-		print("P1 waypoint ready")
 		Globals.player_waypoints[0].append(self)
 	if player2:
 		Globals.player_waypoints[1].append(self)

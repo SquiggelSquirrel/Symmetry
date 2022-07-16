@@ -2,9 +2,9 @@ tool
 extends Node2D
 
 export(int) var player1_hearts = 4 setget set_player1_hearts
-export(int) var player1_powerup_id = 0 setget set_player1_powerup_id
+export(int) var player1_powerup_id = -1 setget set_player1_powerup_id
 export(int) var player2_hearts = 4 setget set_player2_hearts
-export(int) var player2_powerup_id = 0 setget set_player2_powerup_id
+export(int) var player2_powerup_id = -1 setget set_player2_powerup_id
 
 
 func _ready():

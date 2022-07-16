@@ -163,3 +163,9 @@ region_rect = Rect2( 160, 128, 64, 64 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 224, -64, 64, 64 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

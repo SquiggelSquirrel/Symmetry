@@ -4,6 +4,7 @@ var t = 0.0
 
 
 func state_enter() -> void:
+	$SFX.play()
 	.state_enter()
 	begin_knockback()
 	decrease_health()

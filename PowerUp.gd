@@ -2,8 +2,10 @@ tool
 extends StaticBody2D
 
 export(int) var powerup_id setget set_powerup_id
+export(int) var endless_powerup_id := -1
 export(bool) var upside_down = false setget set_upside_down
 var double_tap_prevented := false
+var stored_powerup_id = -1
 
 
 func hit_top(player):
@@ -34,6 +36,8 @@ func hit(player):
 			set_powerup_id(tmp_powerup_id)
 		_:
 			assert(false)
+	if powerup_id != endless_powerup_id:
+		stored_powerup_id = endless_powerup_id
 
 
 func double_tap_timeout():
@@ -51,3 +55,10 @@ func set_upside_down(new_value):
 	upside_down = new_value
 	if get_node_or_null("Textures/Icon"):
 		$Textures/Icon.flip_v = new_value
+
+
+func _on_Timer_timeout():
+	if endless_powerup_id != -1 and stored_powerup_id != -1:
+		var tmp = powerup_id
+		set_powerup_id(stored_powerup_id)
+		stored_powerup_id = tmp

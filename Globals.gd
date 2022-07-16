@@ -5,24 +5,40 @@ signal player1_powerup_change
 signal player2_hearts_change
 signal player2_powerup_change
 signal game_over
+signal level_complete
 
 var player1_hearts = 4 setget set_player1_hearts
-var player1_powerup_id = 0 setget set_player1_powerup
+var player1_powerup_id = -1 setget set_player1_powerup
 var player2_hearts = 4 setget set_player2_hearts
-var player2_powerup_id = 0 setget set_player2_powerup
+var player2_powerup_id = -1 setget set_player2_powerup
 var player_waypoints = [[],[]]
 var is_game_over := false
+var score := 0
+var players_on_goals = 0 setget set_players_on_goals
+var current_level = 1
+
+
+func set_players_on_goals(new_value :int) -> void:
+	players_on_goals = new_value
+	if players_on_goals == 2:
+		emit_signal("level_complete")
+		get_tree().call_deferred("set_pause", true)
 
 
 func restart() -> void:
 	player1_hearts = 4
-	player1_powerup_id = 0
+	player1_powerup_id = -1
 	player2_hearts = 4
-	player2_powerup_id = 0
+	player2_powerup_id = -1
 	player_waypoints = [[],[]]
+	score = 0
 	is_game_over = false
 	var ok = get_tree().reload_current_scene()
 	assert(ok == OK)
+
+
+func next_level():
+	pass
 
 
 func set_player1_hearts(new_value :int) -> void:

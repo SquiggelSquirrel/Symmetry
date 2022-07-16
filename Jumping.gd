@@ -7,6 +7,7 @@ const EARLY_RELEASE_CLAMP = 200
 func state_enter() -> void:
 	.state_enter()
 	get_player().velocity.y = INITIAL_SPEED * get_up()
+	$SFX.play()
 
 
 func _state_physics_process(delta :float) -> void:

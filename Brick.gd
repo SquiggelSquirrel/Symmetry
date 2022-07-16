@@ -85,12 +85,16 @@ func _process(delta):
 			position += velocity * delta
 		
 		State.ATTACK:
+			if ! Input.is_action_pressed(trigger):
+				var max_speed = ease(t * 2.0, 0.2) * 400
+				start_speed = clamp(start_speed, -max_speed, max_speed)
 			var player = get_node(target_player)
 			t += delta
 			var old_position = position
 			if bi:
 				start_point = player.position
-				var end_point = player.position + Vector2.UP * (-320 if player.upside_down else 320)
+				var up = -1 if player.upside_down == get_parent().is_swapped else 1
+				var end_point = player.position + Vector2.UP * -320 * up
 				position = parabola(start_point, end_point, start_speed, t)
 			else:
 				position = parabola(start_point, player.position, start_speed, t)
@@ -102,9 +106,13 @@ func _process(delta):
 					current_state = State.RETURN
 		
 		State.ATTACK_FROM_OTHER:
+			if ! Input.is_action_pressed(trigger):
+				var max_speed = ease(t * 2.0, 0.2) * 400
+				start_speed = clamp(start_speed, -max_speed, max_speed)
 			var player = get_node(other_player)
 			start_point = player.position
-			var end_point = player.position + Vector2.UP * (-320 if player.upside_down else 320)
+			var up = -1 if player.upside_down == get_parent().is_swapped else 1
+			var end_point = player.position + Vector2.UP * -320 * up
 			t += delta
 			var old_position = position
 			position = parabola(start_point, end_point, start_speed, t)
@@ -117,7 +125,8 @@ func _process(delta):
 			t += delta
 			var old_position = position
 			if bi:
-				start_point = player.position + Vector2.UP * (-320 if player.upside_down else 320)
+				var up = -1 if player.upside_down == get_parent().is_swapped else 1
+				start_point = player.position + Vector2.UP * -320 * up
 				var end_point = player.position
 				position = parabola(start_point, end_point, start_speed, t)
 			else:
@@ -135,7 +144,8 @@ func _process(delta):
 			var player = get_node(other_player)
 			t += delta
 			var old_position = position
-			start_point = player.position + Vector2.UP * (-320 if player.upside_down else 320)
+			var up = -1 if player.upside_down == get_parent().is_swapped else 1
+			start_point = player.position + Vector2.UP * -320 * up
 			var end_point = player.position
 			position = parabola(start_point, end_point, start_speed, t)
 			velocity = (position - old_position) / delta
@@ -157,9 +167,11 @@ func _input(event):
 			State.ORBIT:
 				current_state = State.ATTACK
 				enter_attack_state(get_node(target_player))
+				$SFX.play()
 			State.ORBIT_OTHER:
 				current_state = State.ATTACK_FROM_OTHER
 				enter_attack_state(get_node(other_player))
+				$SFX.play()
 
 
 func enter_attack_state(player_node :Node2D) -> void:

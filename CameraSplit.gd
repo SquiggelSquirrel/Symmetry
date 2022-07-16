@@ -11,6 +11,6 @@ func _process(delta) -> void:
 			abs(c1.position.x - c2.position.x) < 0.5
 			and abs(c2.position.y - c1.position.y - 320) < 0.5
 	):
-		modulate.a = lerp(modulate.a, 0.0, delta)
+		modulate.a = lerp(modulate.a, 0.0, delta * 10.0)
 	else:
-		modulate.a = lerp(modulate.a, 1.0, delta)
+		modulate.a = lerp(modulate.a, 1.0, delta * 10.0)

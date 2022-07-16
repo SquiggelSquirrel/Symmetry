@@ -82,6 +82,8 @@ action_2={
 2d_physics/layer_4="player2"
 2d_physics/layer_5="spikes"
 2d_physics/layer_6="enemy"
+2d_physics/layer_7="waypoints"
+2d_physics/layer_8="brick"
 
 [physics]
 

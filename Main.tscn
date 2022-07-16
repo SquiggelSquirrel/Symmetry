@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://SplitScreen.gd" type="Script" id=1]
-[ext_resource path="res://Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Camera2D.gd" type="Script" id=3]
 [ext_resource path="res://Glowy.tres" type="Environment" id=4]
 [ext_resource path="res://StatsBar.tscn" type="PackedScene" id=5]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Restart.gd" type="Script" id=7]
 [ext_resource path="res://OpenSans-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://GameOver.gd" type="Script" id=9]
+[ext_resource path="res://Sounds/Select.wav" type="AudioStream" id=10]
+[ext_resource path="res://LevelComplete.gd" type="Script" id=11]
+[ext_resource path="res://NextLevel.gd" type="Script" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -100,6 +103,9 @@ Button/styles/pressed = SubResource( 10 )
 Label/fonts/font = SubResource( 8 )
 Panel/styles/panel = SubResource( 2 )
 PanelContainer/styles/panel = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 8 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -274,6 +280,198 @@ margin_right = 221.0
 margin_bottom = 31.0
 text = "Restart"
 script = ExtResource( 7 )
+
+[node name="SFX" type="AudioStreamPlayer" parent="GameOver/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/Restart"]
+pause_mode = 2
+stream = ExtResource( 10 )
+
+[node name="LevelComplete" type="CenterContainer" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+title = NodePath("MarginContainer/MarginContainer/VBoxContainer/MarginContainer/Label")
+gems = NodePath("MarginContainer/MarginContainer/VBoxContainer/MarginContainer3/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelComplete"]
+margin_left = 348.0
+margin_top = 228.0
+margin_right = 676.0
+margin_bottom = 411.0
+theme = SubResource( 4 )
+
+[node name="PanelContainer" type="PanelContainer" parent="LevelComplete/MarginContainer"]
+margin_right = 328.0
+margin_bottom = 183.0
+
+[node name="Panel" type="Panel" parent="LevelComplete/MarginContainer/PanelContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 324.0
+margin_bottom = 179.0
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelComplete/MarginContainer"]
+margin_right = 328.0
+margin_bottom = 183.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelComplete/MarginContainer/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 324.0
+margin_bottom = 179.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelComplete/MarginContainer/MarginContainer/VBoxContainer"]
+margin_right = 320.0
+margin_bottom = 89.0
+custom_constants/margin_right = 28
+custom_constants/margin_top = 28
+custom_constants/margin_left = 28
+custom_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="LevelComplete/MarginContainer/MarginContainer/VBoxContainer/MarginContainer"]
+margin_left = 28.0
+margin_top = 28.0
+margin_right = 292.0
+margin_bottom = 73.0
+text = "Level 1 Complete!"
+
+[node name="MarginContainer3" type="MarginContainer" parent="LevelComplete/MarginContainer/MarginContainer/VBoxContainer"]
+margin_top = 89.0
+margin_right = 320.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="LevelComplete/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 316.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 11 )
+text = "Gems: 0/100"
+align = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="LevelComplete/MarginContainer/MarginContainer/VBoxContainer"]
+margin_top = 128.0
+margin_right = 320.0
+margin_bottom = 175.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 8
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 8
+
+[node name="NextLevel" type="Button" parent="LevelComplete/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+margin_left = 4.0
+margin_top = 8.0
+margin_right = 316.0
+margin_bottom = 39.0
+text = "Next Level"
+script = ExtResource( 12 )
+
+[node name="SFX" type="AudioStreamPlayer" parent="LevelComplete/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/NextLevel"]
+pause_mode = 2
+stream = ExtResource( 10 )
+
+[node name="GameComplete" type="CenterContainer" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="GameComplete"]
+margin_left = 336.0
+margin_top = 226.0
+margin_right = 688.0
+margin_bottom = 413.0
+theme = SubResource( 4 )
+
+[node name="PanelContainer" type="PanelContainer" parent="GameComplete/MarginContainer"]
+margin_right = 352.0
+margin_bottom = 187.0
+
+[node name="Panel" type="Panel" parent="GameComplete/MarginContainer/PanelContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 348.0
+margin_bottom = 183.0
+
+[node name="MarginContainer" type="MarginContainer" parent="GameComplete/MarginContainer"]
+margin_right = 352.0
+margin_bottom = 187.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameComplete/MarginContainer/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 348.0
+margin_bottom = 183.0
+custom_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="GameComplete/MarginContainer/MarginContainer/VBoxContainer"]
+margin_right = 344.0
+margin_bottom = 101.0
+custom_constants/margin_right = 28
+custom_constants/margin_top = 28
+custom_constants/margin_left = 28
+custom_constants/margin_bottom = 28
+
+[node name="Label" type="Label" parent="GameComplete/MarginContainer/MarginContainer/VBoxContainer/MarginContainer"]
+margin_left = 28.0
+margin_top = 28.0
+margin_right = 316.0
+margin_bottom = 73.0
+text = "All Levels Complete"
+
+[node name="MarginContainer3" type="MarginContainer" parent="GameComplete/MarginContainer/MarginContainer/VBoxContainer"]
+margin_top = 101.0
+margin_right = 344.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="GameComplete/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 340.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 11 )
+text = "Thanks for playing!"
+align = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="GameComplete/MarginContainer/MarginContainer/VBoxContainer"]
+margin_top = 140.0
+margin_right = 344.0
+margin_bottom = 179.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 0
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 8
+
+[node name="NextLevel" type="Button" parent="GameComplete/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+margin_left = 4.0
+margin_right = 340.0
+margin_bottom = 31.0
+text = "Restart"
+
+[node name="SFX" type="AudioStreamPlayer" parent="GameComplete/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/NextLevel"]
+pause_mode = 2
+stream = ExtResource( 10 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )

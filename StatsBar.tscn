@@ -50,8 +50,9 @@ modulate = Color( 1.2, 1.2, 1.2, 1 )
 position = Vector2( 0, -288 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 224, 0, 64, 64 )
+region_rect = Rect2( 224, -64, 64, 64 )
 script = ExtResource( 3 )
+powerup_id = -1
 
 [node name="Player1" type="Node2D" parent="."]
 
@@ -92,8 +93,9 @@ modulate = Color( 1.2, 1.2, 1.2, 1 )
 position = Vector2( 0, 288 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 224, 0, 64, 64 )
+region_rect = Rect2( 224, -64, 64, 64 )
 script = ExtResource( 3 )
+powerup_id = -1
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color( 2.5, 2.5, 2.5, 1 )
