@@ -1,4 +1,4 @@
-[gd_scene load_steps=157 format=2]
+[gd_scene load_steps=153 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://characters.png" type="Texture" id=2]
@@ -11041,45 +11041,11 @@ tracks/45/keys = {
 [sub_resource type="CircleShape2D" id=204]
 radius = 3.8848
 
-[sub_resource type="Gradient" id=196]
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=197]
-gradient = SubResource( 196 )
-
 [sub_resource type="Curve" id=202]
 _data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
 
-[sub_resource type="CurveTexture" id=203]
-curve = SubResource( 202 )
-
-[sub_resource type="ParticlesMaterial" id=195]
-trail_divisor = 2
-emission_shape = 1
-emission_sphere_radius = 4.0
-flag_disable_z = true
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 6.0
-scale_curve = SubResource( 203 )
-color = Color( 1, 0.447059, 0.643137, 0.611765 )
-color_ramp = SubResource( 197 )
-
-[sub_resource type="ParticlesMaterial" id=205]
-trail_divisor = 2
-emission_shape = 1
-emission_sphere_radius = 4.0
-flag_disable_z = true
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 6.0
-scale_curve = SubResource( 203 )
-color = Color( 0.447059, 0.521569, 1, 0.611765 )
-color_ramp = SubResource( 197 )
+[sub_resource type="Gradient" id=196]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [sub_resource type="AtlasTexture" id=157]
 flags = 4
@@ -12182,12 +12148,19 @@ active = false
 rotation = -2.98023e-08
 shape = SubResource( 204 )
 
-[node name="Particles2D" type="Particles2D" parent="Brick"]
+[node name="Particles2D" type="CPUParticles2D" parent="Brick"]
 show_behind_parent = true
 amount = 32
 lifetime = 0.1
 local_coords = false
-process_material = SubResource( 195 )
+emission_shape = 1
+emission_sphere_radius = 4.0
+spread = 0.0
+gravity = Vector2( 0, 0 )
+scale_amount = 6.0
+scale_amount_curve = SubResource( 202 )
+color = Color( 1, 0.447059, 0.643137, 0.611765 )
+color_ramp = SubResource( 196 )
 
 [node name="SFX" type="AudioStreamPlayer" parent="Brick"]
 stream = ExtResource( 52 )
@@ -12208,12 +12181,19 @@ active = false
 rotation = -2.98023e-08
 shape = SubResource( 204 )
 
-[node name="Particles2D" type="Particles2D" parent="Brick2"]
+[node name="Particles2D" type="CPUParticles2D" parent="Brick2"]
 show_behind_parent = true
 amount = 32
 lifetime = 0.1
 local_coords = false
-process_material = SubResource( 205 )
+emission_shape = 1
+emission_sphere_radius = 4.0
+spread = 0.0
+gravity = Vector2( 0, 0 )
+scale_amount = 6.0
+scale_amount_curve = SubResource( 202 )
+color = Color( 0.447059, 0.521569, 1, 0.611765 )
+color_ramp = SubResource( 196 )
 
 [node name="SFX" type="AudioStreamPlayer" parent="Brick2"]
 stream = ExtResource( 52 )

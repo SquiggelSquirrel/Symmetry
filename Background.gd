@@ -2,4 +2,4 @@ extends TileMap
 
 
 func _ready():
-	modulate.v = 0.04
+	modulate.v = 0.1
