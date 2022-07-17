@@ -37,6 +37,8 @@ func hit(player):
 		_:
 			assert(false)
 	if powerup_id != endless_powerup_id:
+		if powerup_id == -1 and stored_powerup_id != endless_powerup_id:
+			set_powerup_id(stored_powerup_id)
 		stored_powerup_id = endless_powerup_id
 
 

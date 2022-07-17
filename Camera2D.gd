@@ -5,6 +5,10 @@ export(int) var player_id
 
 
 func _process(_delta):
+	if ! get_node_or_null(game):
+		print(game)
+		print(get_node('../../../ViewportContainer/Viewport').get_children())
+		return
 	var player = get_node(game).get_player_node(player_id)
 	if ! player:
 		return

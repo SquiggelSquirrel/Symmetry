@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 100.0
+export(Vector2) var start_velocity := Vector2(100.0, 0)
 var velocity = Vector2.ZERO
 var facing = -1
 var active = true setget set_active
@@ -12,7 +12,7 @@ func _process(delta):
 		velocity = move_and_slide(velocity)
 		if velocity.length_squared() < 100.0:
 			facing *= -1
-			velocity = Vector2(SPEED,0) * facing
+			velocity = start_velocity * facing
 	else:
 		for body in $Nearby.get_overlapping_bodies():
 			if body.has_method("hurt"):

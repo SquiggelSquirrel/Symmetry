@@ -9,6 +9,15 @@ var player_on_goal = false
 func _ready():
 	var ok = Globals.connect("level_complete", self, "_on_level_complete")
 	assert(ok == OK)
+	match player:
+		Player.ONE:
+			region_rect.position.y = 0
+			scale.y = 1
+			$Area2D.collision_mask = 4
+		Player.TWO:
+			region_rect.position.y = 128
+			scale.y = -1
+			$Area2D.collision_mask = 8
 
 
 func set_player(new_value):

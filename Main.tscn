@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://SplitScreen.gd" type="Script" id=1]
 [ext_resource path="res://Level1.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Sounds/Select.wav" type="AudioStream" id=10]
 [ext_resource path="res://LevelComplete.gd" type="Script" id=11]
 [ext_resource path="res://NextLevel.gd" type="Script" id=12]
+[ext_resource path="res://GameViewport.gd" type="Script" id=13]
+[ext_resource path="res://GameComplete.gd" type="Script" id=14]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -185,6 +187,7 @@ own_world = true
 handle_input_locally = false
 usage = 0
 render_target_update_mode = 3
+script = ExtResource( 13 )
 
 [node name="Game" parent="HBoxContainer/MarginContainer/SplitScreen/ViewportContainer/Viewport" instance=ExtResource( 2 )]
 
@@ -387,6 +390,7 @@ pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 14 )
 
 [node name="MarginContainer" type="MarginContainer" parent="GameComplete"]
 margin_left = 336.0
@@ -467,7 +471,8 @@ custom_constants/margin_bottom = 8
 margin_left = 4.0
 margin_right = 340.0
 margin_bottom = 31.0
-text = "Restart"
+text = "Play Again"
+script = ExtResource( 7 )
 
 [node name="SFX" type="AudioStreamPlayer" parent="GameComplete/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/NextLevel"]
 pause_mode = 2
@@ -475,3 +480,5 @@ stream = ExtResource( 10 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
+
+[connection signal="pressed" from="LevelComplete/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/NextLevel" to="LevelComplete" method="hide"]

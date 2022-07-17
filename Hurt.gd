@@ -49,7 +49,7 @@ func decrease_health():
 
 func begin_knockback():
 	var player = get_player()
-	player.get_node("CollisionShape2D").disabled = true
+	player.get_node("CollisionShape2D").call_deferred("set_disabled", true)
 	player.velocity.x *= -0.6
 	player.velocity.y = 160.0 * get_up()
 	t = 0.0
